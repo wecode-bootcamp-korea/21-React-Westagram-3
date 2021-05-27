@@ -1,4 +1,4 @@
-@import '../../../styles/common.scss';
+@import '../../../styles/variables';
 
 body {
   background-color: var(--background_color);
@@ -34,7 +34,7 @@ input {
   padding-left: 1rem;
   border: 1px solid var(--input_border_color);
   border-radius: 0.3rem;
-  background-color: var(--input_color);
+  background-color: var(--input_background_color);
   font-size: 0.7rem;
 }
 
@@ -66,7 +66,7 @@ input {
   justify-content: space-between;
   width: 19rem;
   margin-bottom: 1rem;
-  color: var(--divide_font_color);
+  color: var(--login_divide_font_color);
 
   .login-divide-line-first,
   .login-divide-line-second {
