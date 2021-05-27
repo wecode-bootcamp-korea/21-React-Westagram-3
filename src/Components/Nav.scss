@@ -1,0 +1,64 @@
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: $commonBackGroundColor;
+  border-bottom: 1px solid $commonColor;
+  z-index: 2;
+
+  .navWrapper {
+    @include flexSet(space-between, center);
+    max-width: 1280px;
+    margin: 0 auto;
+
+    .mainLogo {
+      margin-top: 10px;
+
+      span {
+        font-size: 30px;
+        font-family: 'Lobster';
+      }
+    }
+
+    .searchWrapper {
+      position: relative;
+      margin-top: 15px;
+
+      .search {
+        width: 200px;
+        height: 25px;
+        background-color: #fafafa;
+        border: $commonBorder;
+        border-radius: 3px;
+        text-align: center;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      i {
+        position: absolute;
+        left: 70px;
+        color: $commonColor;
+        font-size: 13px;
+        margin-top: 8px;
+      }
+    }
+
+    .iconWrapper {
+      @include flexSet(space-between, center);
+      width: 200px;
+      margin-top: 15px;
+
+      img {
+        width: 24px;
+      }
+
+      .myProfile {
+        border-radius: 50%;
+      }
+    }
+  }
+}
