@@ -4,7 +4,7 @@ import './Nav.scss';
 class Nav extends React.Component {
   render() {
     return (
-      <nav>
+      <nav className="navContainer">
         <div class="navWrapper">
           <div className="mainLogo">
             <span>westagram</span>
