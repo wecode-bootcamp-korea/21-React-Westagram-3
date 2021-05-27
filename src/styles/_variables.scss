@@ -24,11 +24,29 @@
   --story_availiable_color: #e3538e;
   --story_border_color: #de346c;
   --title_color: RGB(38, 38, 38);
+}
 
-  @mixin flexSet($direction: row, $justify: flex-start, $align: flex-start) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
+@mixin flexSet($direction: row, $justify: flex-start, $align: flex-start) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin mobile {
+  @media (min-width: 335px) and (max-width: #{758px - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{758px}) and (max-width: #{1024px - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{1024px}) {
+    @content;
   }
 }
