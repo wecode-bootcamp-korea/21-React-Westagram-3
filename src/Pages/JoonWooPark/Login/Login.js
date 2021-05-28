@@ -7,13 +7,26 @@ class Login extends React.Component {
     this.state = {
       inputId: '',
       inputPassword: '',
+      isDisabled: true,
     };
   }
 
   handleInput = e => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+    this.setState(
+      {
+        [e.target.name]: e.target.value,
+      },
+      () => {
+        this.validLoginButton();
+      }
+    );
+  };
+
+  validLoginButton = () => {
+    const { inputId, inputPassword } = this.state;
+    inputId.includes('@') && inputPassword.length >= 5
+      ? this.setState({ isDisabled: false })
+      : this.setState({ isDisabled: true });
   };
 
   render() {
@@ -37,7 +50,11 @@ class Login extends React.Component {
               name="inputPassword"
               onChange={e => this.handleInput(e)}
             />
-            <button className="login-button" disabled>
+            <button
+              className={
+                this.state.isDisabled ? 'login-button' : 'login-button active'
+              }
+            >
               로그인
             </button>
             <div className="login-divide">
