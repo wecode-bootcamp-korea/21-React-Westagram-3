@@ -1,0 +1,75 @@
+@import '../../../styles/variables.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.allContainer {
+  @include flexSet(row, center, center);
+
+  .login_container {
+    border: 2px solid var(--login_section_border_color);
+    margin-top: 60px;
+
+    header {
+      margin-top: 30px;
+      margin-bottom: 60px;
+
+      p {
+        @include flexSet(row, center, center);
+        font-size: 75px;
+        font-family: 'Lobster';
+      }
+    }
+
+    main {
+      @include flexSet(row, center, center);
+      flex-direction: column;
+
+      input {
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        background-color: var(--input_background_color);
+        border: 1px solid var(--input_border_color);
+        border-radius: 3px;
+        width: 350px;
+        height: 45px;
+      }
+
+      button {
+        color: var(--login_button_text_color);
+        background-color: var(--login_button_color);
+        border: none;
+        border-radius: 5px;
+        width: 350px;
+        height: 40px;
+        margin-top: 10px;
+        font-size: 17px;
+      }
+    }
+
+    .findPassword {
+      margin: 50px;
+      padding: 100px;
+
+      a {
+        text-decoration: none;
+        color: var(--login_forget_password_color);
+      }
+    }
+  }
+}
+
+/*
+.button:disabled{
+  background-color: #1182d9;
+  opacity:0.4;
+}
+
+.button:enabled{
+  cursor: pointer;
+}
+*/

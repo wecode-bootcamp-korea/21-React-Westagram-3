@@ -1,0 +1,302 @@
+@import '../../../styles/variables.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.superContainer {
+  background-color: var(--background_color);
+}
+
+main {
+  .mainWrapper {
+    display: flex;
+    padding-top: 100px;
+    max-width: 1250px;
+    margin: 0 auto;
+
+    .main-left {
+      margin: 0 40px;
+
+      .storyBox {
+        border: 1px solid var(--story_container_border_color);
+        margin-bottom: 30px;
+        background-color: var(--background_color);
+        border-radius: 5px;
+
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          box-shadow: 0 0 0 3px var(--story_shadow_color),
+            0 0 0 5px var(--story_border_color);
+        }
+
+        ul {
+          @include flexSet(row, space-between, flex-start);
+          margin: 20px 20px 15px 20px;
+          list-style: none;
+
+          li {
+            text-align: center;
+
+            i {
+              margin-top: 20px;
+              color: var(--story_arrow_color);
+            }
+
+            p {
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+
+      article {
+        border: 1px solid var(--border_color);
+        border-radius: 5px;
+
+        .feedUpper {
+          background-color: var(--background_color);
+          display: flex;
+
+          .mainProfile {
+            width: 24px;
+            height: 24px;
+            margin: 18px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px var(--story_shadow_color),
+              0 0 0 5px var(--story_border_color);
+          }
+
+          .feedProfile {
+            @include flexSet(row, space-between, flex-start);
+            width: 100%;
+
+            strong {
+              margin: 18px 0;
+            }
+
+            img {
+              padding-top: 20px;
+              padding-right: 10px;
+            }
+          }
+        }
+
+        .feedLower {
+          background-color: var(--background_color);
+
+          .feedIcon {
+            @include flexSet(row, space-between, flex-start);
+            padding-top: 10px;
+
+            .icon-left {
+              display: inline-block;
+              width: 100px;
+
+              .iconSpace {
+                margin-left: 15px;
+                @include flexSet(row, space-between, flex-start);
+                width: 100%;
+              }
+            }
+
+            .icon-right {
+              display: inline-block;
+              margin-right: 15px;
+            }
+          }
+
+          .contentWrapper {
+            margin-left: 15px;
+
+            .clickGood {
+              @include flexSet(row, flex-start, center);
+              margin: 10px 0;
+
+              img {
+                width: 18px;
+                margin-right: 5px;
+                border-radius: 50%;
+              }
+            }
+
+            .myContent {
+              margin-bottom: 4px;
+            }
+
+            a {
+              display: block;
+              color: var(--feed_comment_all_color);
+              text-decoration: none;
+              margin-bottom: 4px;
+            }
+
+            .commentList {
+              li {
+                margin-bottom: 4px;
+              }
+            }
+
+            p {
+              margin: 10px 0;
+              color: var(--feed_upload_time_color);
+              font-size: 11px;
+            }
+
+            ul {
+              list-style: none;
+            }
+          }
+
+          .inputWrapper {
+            display: flex;
+            height: 55px;
+            border-top: 1px solid var(--border_color);
+
+            img {
+              width: 20px;
+              height: 20px;
+              margin: 18px 15px;
+            }
+
+            .inputBox {
+              display: flex;
+              width: 100%;
+
+              input {
+                margin: 15px 0;
+                padding: 10px 0;
+                flex: 9;
+                border: none;
+                font-size: 15px;
+
+                &:focus {
+                  outline: none;
+                }
+              }
+
+              button {
+                margin: 15px 0;
+                flex: 1;
+                border: none;
+                background-color: var(--background_color);
+                color: var(--register_text_color);
+                font-weight: bold;
+                font-size: 15px;
+
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .main-right {
+      margin: 0 0 0 30px;
+
+      .profileBox {
+        display: flex;
+
+        .imageBox {
+          width: 30px;
+
+          img {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+          }
+        }
+        .nameBox {
+          display: flex;
+          flex-direction: column;
+          width: 250px;
+          margin-left: 45px;
+        }
+
+        button {
+          width: 50px;
+          border: none;
+          background-color: var(--background_color);
+          color: var(--recommend_follow_text_color);
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .recommendBox {
+        @include flexSet(row, space-between, flex-start);
+        margin: 10px 0;
+
+        .recommendContent {
+          color: var(--main_right_text-color);
+        }
+
+        .recommendAll {
+          font-size: 12px;
+        }
+      }
+      .followBox {
+        ul {
+          list-style: none;
+
+          li {
+            position: relative;
+            height: 50px;
+
+            img {
+              position: absolute;
+              left: 0;
+              width: 24px;
+              height: 24px;
+              margin-top: 5px;
+              border-radius: 50%;
+            }
+
+            .columnBox {
+              display: flex;
+              flex-direction: column;
+              position: absolute;
+              left: 35px;
+
+              span {
+                color: var(--main_right_text-color);
+                font-size: 13px;
+              }
+            }
+
+            .followButton {
+              position: absolute;
+              right: 0;
+              margin-top: 5px;
+              color: var(--recommend_follow_text_color);
+              font-size: 13px;
+            }
+          }
+        }
+      }
+      footer {
+        margin-top: 20px;
+
+        span {
+          color: var(--footer_text_color);
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+@include tablet {
+  .main-right {
+    display: none;
+  }
+}

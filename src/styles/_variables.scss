@@ -1,28 +1,38 @@
 :root {
   --background_color: #fafafa;
+  --border_color: #e0e0e0;
   --comment_submit_color: #b3dffc;
-  --facebook_text_color: #385185;
+  --feed_comment_all_color: #939393;
   --feed_upload_time_color: #939393;
   --footer_text_color: #909090;
   --home_button_color: #272727;
   --input_background_color: #fafafa;
   --input_border_color: #dfdfdf;
   --login_button_color: #b2dffc;
+  --login_button_text_color: #fafafa;
   --login_divide_line_color: #cfcfcf;
   --login_divide_font_color: #b3b3b3;
+  --login_forget_password_color: #385185;
+  --login_select_background_color: #fafafa;
+  --login_section_border_color: #dbdbdb;
   --main_background_color: #efefef;
   --main_header_color: #ffffff;
+  --main_right_text_color: gray;
   --nav_background_color: #fafafa;
+  --nav_border_bottom-color: #b3b3b3;
+  --nav_i_color: #c7c8c9;
   --nav_input_border_color: #dbdbdb;
   --nav_input_background_color: #fafafa;
   --nav_input_text_color: #fafafa;
   --nav_profile_color: #b3b3b3;
   --recommend_follow_text_color: #0195f6;
   --register_text_color: #0095f6;
-  --section_color: #ffffff;
-  --section_border_color: #d19d9d;
+  --section_background_color: #ffffff;
+  --story_arrow_color: #e0e0e0;
   --story_availiable_color: #e3538e;
   --story_border_color: #de346c;
+  --story_shadow_color: #fff;
+  --story_container_border_color: #e0e0e0;
   --title_color: RGB(38, 38, 38);
 }
 
