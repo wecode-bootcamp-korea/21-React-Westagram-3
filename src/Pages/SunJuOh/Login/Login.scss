@@ -11,7 +11,7 @@
   @include flexSet(row, center, center);
 
   .login_container {
-    border: 2px solid var(--login_section_border_color);
+    border: 2px solid var(--all_section_border_color);
     margin-top: 60px;
 
     header {
@@ -32,8 +32,8 @@
       input {
         padding: 5px 10px;
         margin-bottom: 10px;
-        background-color: var(--input_background_color);
-        border: 1px solid var(--input_border_color);
+        background-color: var(--login_input_background_color);
+        border: 1px solid var(--login_input_border_color);
         border-radius: 3px;
         width: 350px;
         height: 45px;
@@ -57,7 +57,7 @@
 
       a {
         text-decoration: none;
-        color: var(--login_forget_password_color);
+        color: var(--login_register_text_color);
       }
     }
   }

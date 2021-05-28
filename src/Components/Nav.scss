@@ -1,16 +1,19 @@
+@import '../styles/_variables.scss';
+
 .navContainer {
   position: fixed;
   top: 0;
   width: 100%;
   height: 60px;
-  background-color: $commonBackGroundColor;
-  border-bottom: 1px solid $commonColor;
+  background-color: var(--nav_background_color);
+  border-bottom: 1px solid var(--nav_border_bottom-color);
   z-index: 2;
 
   .navWrapper {
-    @include flexSet(space-between, center);
+    @include flexSet(row, space-between, center);
     max-width: 1280px;
     margin: 0 auto;
+    padding: 0 30px;
 
     .mainLogo {
       margin-top: 10px;
@@ -28,27 +31,41 @@
       .search {
         width: 200px;
         height: 25px;
-        background-color: #fafafa;
-        border: $commonBorder;
+        background-color: var(--nav_input_background_color);
+        border: 1px solid var(--nav_input_border_color);
         border-radius: 3px;
-        text-align: center;
+        outline: none;
 
-        &:focus {
-          outline: none;
+        &::placeholder {
+          text-align: center;
+          color: #c7c7c7;
         }
       }
 
       i {
         position: absolute;
         left: 70px;
-        color: $commonColor;
+        color: var(--nav_i_color);
         font-size: 13px;
         margin-top: 8px;
+      }
+
+      &:focus-within {
+        input {
+          padding-left: 23px;
+
+          &::placeholder {
+            color: transparent;
+          }
+        }
+        i {
+          left: 8px;
+        }
       }
     }
 
     .iconWrapper {
-      @include flexSet(space-between, center);
+      @include flexSet(row, space-between, center);
       width: 200px;
       margin-top: 15px;
 
@@ -60,5 +77,14 @@
         border-radius: 50%;
       }
     }
+  }
+}
+
+@include mobile {
+  .search {
+    display: none;
+  }
+  .searchWrapper i {
+    display: none;
   }
 }
