@@ -3,8 +3,28 @@ import { Link, withRouter } from 'react-router-dom';
 import './Login.scss';
 
 class Login extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      idValue: '',
+      pwValue: '',
+    };
+  }
+
   goToMain = () => {
     this.props.history.push('/main-myung');
+  };
+
+  handleIdInput = e => {
+    this.setState({
+      idValue: e.target.value,
+    });
+  };
+
+  handlePwInput = e => {
+    this.setState({
+      pwValue: e.target.value,
+    });
   };
 
   render() {
@@ -27,12 +47,12 @@ class Login extends React.Component {
               <main>
                 <div className="login-input">
                   <input
-                    id="js__input-id"
+                    onChange={this.handleIdInput}
                     type="text"
                     placeholder="전화번호,사용자 이름 또는 이메일"
                   />
                   <input
-                    id="js__input-password"
+                    onChange={this.handlePwInput}
                     type="password"
                     placeholder="비밀번호"
                   />

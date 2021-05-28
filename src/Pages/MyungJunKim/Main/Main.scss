@@ -12,7 +12,7 @@
     justify-content: center;
     margin-top: 60px;
     padding-top: 7px;
-    background-color: var(--background_color);
+    background-color: var(--all_background_color);
 
     .feeds-container {
       display: flex;
@@ -115,7 +115,7 @@
 
       .contents {
         border: 1px solid #dbdbdb;
-        background-color: var(--section_background_color);
+        background-color: var(--all_section_background_color);
         .contents__header {
           display: flex;
           justify-content: space-between;
@@ -268,11 +268,11 @@
     width: 290px;
     margin-top: 25px;
     margin-left: 40px;
-    background-color: var(--background_color);
+    background-color: var(--all_background_color);
 
     button {
       border: none;
-      background-color: var(--background_color);
+      background-color: var(--all_background_color);
     }
 
     .my-profile {
@@ -294,7 +294,7 @@
       }
 
       button {
-        color: var(--recommend_follow_text_color);
+        color: var(--main_recommend_follow_text_color);
       }
     }
 
@@ -339,7 +339,7 @@
             }
 
             button {
-              color: var(--recommend_follow_text_color);
+              color: var(--main_recommend_follow_text_color);
             }
           }
         }
@@ -351,7 +351,7 @@
       margin-left: 10px;
       text-align: center;
       font-size: 11px;
-      color: var(--footer_text_color);
+      color: var(--all_footer_text_color);
 
       div {
         margin-top: 20px;
@@ -364,7 +364,7 @@
   .main-myung {
     display: flex;
     justify-content: center;
-    background-color: var(--background_color);
+    background-color: var(--all_background_color);
   }
 
   .main-myung main {
@@ -392,7 +392,7 @@
   }
 
   .main-myung main .feeds-container .feeds {
-    background-color: var(--background_color);
+    background-color: var(--all_background_color);
   }
 
   .main-myung main .feeds-container .feeds .story {

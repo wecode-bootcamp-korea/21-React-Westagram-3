@@ -6,7 +6,6 @@ import LoginMyung from './Pages/MyungJunKim/Login/Login';
 import MainMyung from './Pages/MyungJunKim/Main/Main';
 import LoginSun from './Pages/SunJuOh/Login/Login';
 import MainSun from './Pages/SunJuOh/Main/Main';
-import './styles/_variables.scss';
 import './styles/reset.scss';
 
 class Routes extends React.Component {
