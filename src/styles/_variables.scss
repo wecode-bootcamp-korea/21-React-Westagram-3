@@ -25,6 +25,7 @@
   --main_story_border_color: #de346c;
   --main_story_shawdow_color: #fff;
   --main_story_container_border_color: #e0e0e0;
+  --main_recommend_follow_text_color: #0195f6;
   --nav_background_color: #fafafa;
   --nav_border_bottom-color: #b3b3b3;
   --nav_i_color: #c7c8c9;
@@ -32,17 +33,6 @@
   --nav_input_background_color: #fafafa;
   --nav_input_text_color: #fafafa;
   --nav_profile_color: #b3b3b3;
-<<<<<<< HEAD
-  --main_recommend_follow_text_color: #0195f6;
-=======
-  --recommend_follow_text_color: #0195f6;
-  --register_text_color: #0095f6;
-  --section_color: #ffffff;
-  --section_border_color: #d19d9d;
-  --story_availiable_color: #e3538e;
-  --story_border_color: #de346c;
-  --title_color: RGB(38, 38, 38);
->>>>>>> master
 }
 
 @mixin flexSet($direction: row, $justify: flex-start, $align: flex-start) {
