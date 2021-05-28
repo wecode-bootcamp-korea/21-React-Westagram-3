@@ -81,10 +81,11 @@
       border: none;
       border-radius: 3px;
       color: white;
+      cursor: pointer;
+      background-color: #0095f6;
 
-      &:hover {
-        cursor: pointer;
-        background-color: #0095f6;
+      &:disabled {
+        opacity: 0.3;
       }
     }
 

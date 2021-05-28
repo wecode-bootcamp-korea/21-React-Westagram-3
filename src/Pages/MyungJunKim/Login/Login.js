@@ -48,16 +48,27 @@ class Login extends React.Component {
                 <div className="login-input">
                   <input
                     onChange={this.handleIdInput}
+                    value={this.state.idValue}
                     type="text"
                     placeholder="전화번호,사용자 이름 또는 이메일"
                   />
                   <input
                     onChange={this.handlePwInput}
+                    value={this.state.pwValue}
                     type="password"
                     placeholder="비밀번호"
                   />
                 </div>
-                <button className="login-button" onClick={this.goToMain}>
+                <button
+                  className="login-button"
+                  onClick={this.goToMain}
+                  disabled={
+                    !(
+                      this.state.idValue.includes('@') &&
+                      this.state.pwValue.length >= 5
+                    )
+                  }
+                >
                   <span>로그인</span>
                 </button>
               </main>
@@ -69,7 +80,7 @@ class Login extends React.Component {
                 </div>
 
                 <button>
-                  <i class="fab fa-facebook-square"></i>
+                  <i className="fab fa-facebook-square"></i>
                   Facebook으로 로그인
                 </button>
                 <Link to="/">비밀번호를 잊으셨나요?</Link>
