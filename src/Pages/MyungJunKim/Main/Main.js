@@ -3,6 +3,29 @@ import Nav from '../../../Components/Nav';
 import './Main.scss';
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      inputValue: '',
+
+      commentsList: [],
+    };
+  }
+
+  handleinputarea = e => {
+    this.setState({
+      inputValue: e.target.value,
+    });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.setState({
+      inputValue: '',
+      commentsList: this.state.commentsList.concat([this.state.inputValue]),
+    });
+  };
+
   render() {
     return (
       <div className="main-myung">
@@ -202,18 +225,35 @@ class Main extends React.Component {
                   <span className="more">댓글 311개 모두 보기</span>
                 </div>
                 <div className="comment-container">
-                  <ul className="js-comment-list"></ul>
+                  <ul className="js-comment-list">
+                    {this.state.commentsList.map((comment, idx) => {
+                      return (
+                        <li key={idx}>
+                          <b>myxxjun</b>
+                          {comment}
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
                 <article className="comment-input-container">
                   <div>
                     <i className="far fa-smile"></i>
                   </div>
-                  <form className="js-comment-form">
-                    <textarea
-                      className="js-comment-textarea"
+                  <form
+                    className="js-comment-form"
+                    onSubmit={this.handleSubmit}
+                  >
+                    <input
+                      onChange={this.handleinputarea}
+                      value={this.state.inputValue}
+                      className="js-comment-inputarea"
                       placeholder="댓글 달기..."
-                    ></textarea>
-                    <button className="js-comment-button" disabled>
+                    ></input>
+                    <button
+                      className="js-comment-button"
+                      disabled={this.state.inputValue.length < 1}
+                    >
                       게시
                     </button>
                   </form>

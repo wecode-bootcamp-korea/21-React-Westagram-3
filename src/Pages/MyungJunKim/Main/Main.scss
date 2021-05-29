@@ -194,24 +194,29 @@
         .comment-container {
           margin-left: 15px;
           font-size: 14px;
+          ul {
+            display: flex;
+            flex-direction: column;
+            li {
+              width: 100%;
+              margin-bottom: 5px;
+              margin-right: 10px;
+              margin-left: 0px;
 
-          li {
-            width: 100%;
-            margin-bottom: 5px;
-            margin-right: 10px;
+              b {
+                margin-right: 5px;
+                font-weight: 700;
+              }
 
-            b {
-              margin-right: 5px;
-            }
-
-            button {
-              float: right;
-              margin-left: 2px;
-              margin-right: 5px;
-              cursor: pointer;
-              outline: none;
-              border: none;
-              background-color: #fff;
+              button {
+                float: right;
+                margin-left: 2px;
+                margin-right: 5px;
+                cursor: pointer;
+                outline: none;
+                border: none;
+                background-color: #fff;
+              }
             }
           }
         }
@@ -236,10 +241,10 @@
             margin-top: 10px;
           }
 
-          textarea {
+          input {
             height: 35px;
             width: 500px;
-            resize: none;
+            margin-bottom: 10px;
             padding-top: 6px;
             border: none;
 
@@ -255,7 +260,8 @@
             cursor: pointer;
 
             &:disabled {
-              color: #5fbdfc;
+              // color: #5fbdfc;
+              color: red;
               cursor: default;
             }
           }

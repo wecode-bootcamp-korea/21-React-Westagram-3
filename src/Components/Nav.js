@@ -5,7 +5,7 @@ class Nav extends React.Component {
   render() {
     return (
       <nav className="navContainer">
-        <div class="navWrapper">
+        <div className="navWrapper">
           <div className="mainLogo">
             <span>westagram</span>
           </div>
