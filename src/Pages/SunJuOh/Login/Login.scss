@@ -41,7 +41,7 @@
 
       button {
         color: var(--login_button_text_color);
-        background-color: var(--login_button_color);
+        background-color: #1182d9;
         border: none;
         border-radius: 5px;
         width: 350px;
@@ -62,14 +62,3 @@
     }
   }
 }
-
-/*
-.button:disabled{
-  background-color: #1182d9;
-  opacity:0.4;
-}
-
-.button:enabled{
-  cursor: pointer;
-}
-*/
