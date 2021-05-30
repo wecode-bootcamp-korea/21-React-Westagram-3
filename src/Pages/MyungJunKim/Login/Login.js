@@ -45,32 +45,33 @@ class Login extends React.Component {
             <div className="login-wrapper">
               <h1>westargram</h1>
               <main>
-                <div className="login-input">
-                  <input
-                    onChange={this.handleIdInput}
-                    value={this.state.idValue}
-                    type="text"
-                    placeholder="전화번호,사용자 이름 또는 이메일"
-                  />
-                  <input
-                    onChange={this.handlePwInput}
-                    value={this.state.pwValue}
-                    type="password"
-                    placeholder="비밀번호"
-                  />
-                </div>
-                <button
-                  className="login-button"
-                  onClick={this.goToMain}
-                  disabled={
-                    !(
-                      this.state.idValue.includes('@') &&
-                      this.state.pwValue.length >= 5
-                    )
-                  }
-                >
-                  <span>로그인</span>
-                </button>
+                <form onSubmit={this.goToMain}>
+                  <div className="login-input">
+                    <input
+                      onChange={this.handleIdInput}
+                      value={this.state.idValue}
+                      type="text"
+                      placeholder="전화번호,사용자 이름 또는 이메일"
+                    />
+                    <input
+                      onChange={this.handlePwInput}
+                      value={this.state.pwValue}
+                      type="password"
+                      placeholder="비밀번호"
+                    />
+                  </div>
+                  <button
+                    className="login-button"
+                    disabled={
+                      !(
+                        this.state.idValue.includes('@') &&
+                        this.state.pwValue.length >= 5
+                      )
+                    }
+                  >
+                    <span>로그인</span>
+                  </button>
+                </form>
               </main>
               <footer className="login-footer">
                 <div className="login-bar-container">
