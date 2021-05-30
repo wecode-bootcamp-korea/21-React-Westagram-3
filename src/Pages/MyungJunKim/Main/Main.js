@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../../../Components/Nav';
+import Comments from '../Main/Comments';
 import './Main.scss';
 
 class Main extends React.Component {
@@ -7,7 +8,6 @@ class Main extends React.Component {
     super();
     this.state = {
       inputValue: '',
-
       commentsList: [],
     };
   }
@@ -225,16 +225,7 @@ class Main extends React.Component {
                   <span className="more">댓글 311개 모두 보기</span>
                 </div>
                 <div className="comment-container">
-                  <ul className="js-comment-list">
-                    {this.state.commentsList.map((comment, idx) => {
-                      return (
-                        <li key={idx}>
-                          <b>myxxjun</b>
-                          {comment}
-                        </li>
-                      );
-                    })}
-                  </ul>
+                  <Comments commentsList={this.state.commentsList} />
                 </div>
                 <article className="comment-input-container">
                   <div>
