@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Login.scss';
 
 class Login extends React.Component {
@@ -50,13 +51,21 @@ class Login extends React.Component {
               name="inputPassword"
               onChange={e => this.handleInput(e)}
             />
-            <button
+
+            <Link
+              to="/main-joon"
               className={
-                this.state.isDisabled ? 'login-button' : 'login-button active'
+                this.state.isDisabled ? 'link-button' : 'link-button active'
               }
             >
-              로그인
-            </button>
+              <button
+                className={
+                  this.state.isDisabled ? 'login-button' : 'login-button active'
+                }
+              >
+                로그인
+              </button>
+            </Link>
             <div className="login-divide">
               <div className="login-divide-line-first"></div>
               <div className="login-divide-text">또는</div>

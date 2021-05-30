@@ -1,6 +1,9 @@
 import React from 'react';
 import Nav from '../../../Components/Nav';
 import CommentList from '../Components/CommentList';
+import RecommendUser from '../Components/RecommendUser';
+import StoryList from '../Components/StoryList';
+import jsonData from '../data.json';
 import './Main.scss';
 
 class Main extends React.Component {
@@ -8,9 +11,19 @@ class Main extends React.Component {
     super();
     this.state = {
       commentList: [],
+      currentUser: '',
       inputComment: '',
+      userData: [],
     };
   }
+
+  componentDidMount() {
+    this.addData();
+  }
+
+  addData = () => {
+    this.setState({ userData: jsonData });
+  };
 
   handleInput = e => {
     this.setState({
@@ -44,7 +57,11 @@ class Main extends React.Component {
         <Nav />
         <main>
           <section className="left-container">
-            <div className="story-container"></div>
+            <div className="story-container">
+              {this.state.userData.length > 0 && (
+                <StoryList userData={this.state.userData} />
+              )}
+            </div>
             <div className="feeds-container">
               <section className="feed-personal-info">
                 <span className="personal-photo"></span>
@@ -112,6 +129,9 @@ class Main extends React.Component {
                 <h3>회원님을 위한 추천</h3>
                 <span>모두 보기</span>
               </article>
+              {this.state.userData.length > 0 && (
+                <RecommendUser userData={this.state.userData} />
+              )}
             </section>
             <footer>
               <ul className="footer-upper-deck">
