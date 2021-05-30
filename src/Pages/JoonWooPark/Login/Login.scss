@@ -56,6 +56,15 @@ body {
     cursor: pointer;
   }
 
+  .link-button {
+    color: #ffffff;
+    pointer-events: none;
+  }
+
+  .link-button.active {
+    pointer-events: all;
+  }
+
   .login-divide {
     @include flexSet(row, space-between, center);
     width: 19rem;

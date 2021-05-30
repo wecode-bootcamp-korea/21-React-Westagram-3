@@ -6,10 +6,11 @@ class CommentList extends React.Component {
     this.state = {};
   }
   render() {
-    return this.props.commentList.map((data, index) => {
+    const { commentList } = this.props;
+    return commentList.map((data, index) => {
       return (
         <li key={index}>
-          <span className="commentor-id">M_Y</span>
+          <span className="commentor-id">WRITER</span>
           <span className="comment-content">{data}</span>
           <button className="comment-like-button">
             <i className="fas fa-heart"></i>
