@@ -3,17 +3,15 @@ import React from 'react';
 class Comments extends React.Component {
   render() {
     return (
-      <ul>
-        {this.props.commentsList.map((comment, idx) => {
-          return (
-            <li key={idx}>
-              <b>myxxjun</b>
-              {comment}
-              <button>♡</button>
-            </li>
-          );
-        })}
-      </ul>
+      <>
+        {this.props.commentsList.map((comment, idx) => (
+          <li key={idx}>
+            <b>{comment.userName}</b>
+            {comment.content}
+            <button>♡</button>
+          </li>
+        ))}
+      </>
     );
   }
 }

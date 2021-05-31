@@ -15,15 +15,9 @@ class Login extends React.Component {
     this.props.history.push('/main-myung');
   };
 
-  handleIdInput = e => {
+  handleInput = e => {
     this.setState({
-      idValue: e.target.value,
-    });
-  };
-
-  handlePwInput = e => {
-    this.setState({
-      pwValue: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -48,13 +42,15 @@ class Login extends React.Component {
                 <form onSubmit={this.goToMain}>
                   <div className="login-input">
                     <input
-                      onChange={this.handleIdInput}
+                      name="idValue"
+                      onChange={this.handleInput}
                       value={this.state.idValue}
                       type="text"
                       placeholder="전화번호,사용자 이름 또는 이메일"
                     />
                     <input
-                      onChange={this.handlePwInput}
+                      name="pwValue"
+                      onChange={this.handleInput}
                       value={this.state.pwValue}
                       type="password"
                       placeholder="비밀번호"

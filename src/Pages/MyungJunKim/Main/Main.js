@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Nav from '../../../Components/Nav';
 import Comments from '../Main/Comments';
+import Comment from '../Main/Comment';
+
 import './Main.scss';
 
-class Main extends React.Component {
+class Main extends Component {
   constructor() {
     super();
     this.state = {
       inputValue: '',
       commentsList: [],
+      commentList: [],
     };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentsList: data,
+        });
+      });
   }
 
   handleinputarea = e => {
@@ -22,7 +37,7 @@ class Main extends React.Component {
     e.preventDefault();
     this.setState({
       inputValue: '',
-      commentsList: this.state.commentsList.concat([this.state.inputValue]),
+      commentList: this.state.commentList.concat([this.state.inputValue]),
     });
   };
 
@@ -225,7 +240,10 @@ class Main extends React.Component {
                   <span className="more">댓글 311개 모두 보기</span>
                 </div>
                 <div className="comment-container">
-                  <Comments commentsList={this.state.commentsList} />
+                  <ul>
+                    <Comments commentsList={this.state.commentsList} />
+                    <Comment commentList={this.state.commentList} />
+                  </ul>
                 </div>
                 <article className="comment-input-container">
                   <div>
