@@ -2,11 +2,11 @@ import React from 'react';
 
 class CommentsList extends React.Component {
   render() {
-    const { comment } = this.props;
+    const { name, comment } = this.props;
     return (
       <li>
-        <strong>{comment.userName}</strong>
-        <span>{comment.content}</span>
+        <strong>{name}</strong>
+        <span>{comment}</span>
       </li>
     );
   }

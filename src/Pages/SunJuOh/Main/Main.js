@@ -18,34 +18,31 @@ class Main extends React.Component {
     });
   };
 
-  //addComment부분 수정중
-  addComment = () => {
+  addComment = feedId => {
     const { value, feedData } = this.state;
 
     const newObj = {
-      id: feedData.commentList.length + 1,
-      userName: 'annonymous',
+      id: feedData[feedId].commentList.length + 1,
+      userName: '_ocean_zoo',
       content: value,
     };
 
-    // feedData.map((valu, index) => {
-    //   return feedData[index].commentList[3].concat(newObj)
+    const newComment = feedData.map(feed => {
+      if (feed.feedId === feedId) {
+        feedData[feedId].commentList =
+          feedData[feedId].commentList.concat(newObj);
+      }
+      return feed;
+    });
 
-    //    const addCommentToArray = feedData[index].commentList[3].concat({
-    //     id: feedData.commentList.id.length + 1,
-    //     userName: '_ocean_zoo',
-    //     content: value,
-    //   });
-
-    //   this.setState({
-    //     feedData: addCommentToArray,
-    //     value: '',
-    //   });
-    // });
+    this.setState({
+      feedData: newComment,
+      value: '',
+    });
   };
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/feedData.json', {
+    fetch('http://localhost:3001/data/feedData.json', {
       method: 'GET',
     })
       .then(res => res.json())
@@ -56,17 +53,8 @@ class Main extends React.Component {
       });
   }
 
-  handleEnterKey = event => {
-    console.log(event);
-
-    if (event.key === 'Enter') {
-      this.addComment();
-    }
-  };
-
   render() {
     const { feedData, value } = this.state;
-
     return (
       <div className="superContainer">
         <section className="allWrapper">
@@ -105,15 +93,15 @@ class Main extends React.Component {
                     </li>
                   </ul>
                 </div>
-                {feedData.map((feed, index) => {
+                {feedData.map(feed => {
                   return (
                     <Feed
-                      key={`feed ${index}`}
+                      key={feed.feedId}
                       feed={feed}
+                      value={value}
                       handleInput={this.handleInput}
                       handleEnterKey={this.handleEnterKey}
                       addComment={this.addComment}
-                      value={value}
                     />
                   );
                 })}

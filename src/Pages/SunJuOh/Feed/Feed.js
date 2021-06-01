@@ -3,14 +3,6 @@ import CommentInput from '../CommentInput/CommentInput';
 import CommentsList from '../CommentsList/CommentsList';
 import '../Main/Main.scss';
 class Feed extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      feedData: [],
-      commentList: [],
-    };
-  }
-
   render() {
     const { feed, handleInput, handleEnterKey, value, addComment } = this.props;
 
@@ -52,9 +44,13 @@ class Feed extends React.Component {
             <a href="">댓글 3개 모두 보기</a>
             <div>
               <ul className="commentContainer">
-                {feed.commentList.map((comment, index) => {
+                {feed.commentList.map(comment => {
                   return (
-                    <CommentsList key={`comment ${index}`} comment={comment} />
+                    <CommentsList
+                      key={comment.id}
+                      name={comment.userName}
+                      comment={comment.content}
+                    />
                   );
                 })}
               </ul>
@@ -64,6 +60,7 @@ class Feed extends React.Component {
           <div className="inputWrapper">
             <img alt="happyface" src="/Images/SunJuOh/happyface.png" />
             <CommentInput
+              feedId={feed.feedId}
               value={value}
               addComment={addComment}
               handleInput={handleInput}
