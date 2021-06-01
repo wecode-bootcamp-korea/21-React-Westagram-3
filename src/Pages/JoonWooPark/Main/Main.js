@@ -61,18 +61,17 @@ class Main extends React.Component {
   };
 
   render() {
+    const { userData, commentList } = this.state;
     return (
       <div className="ParkJoonWoo">
         <Nav />
         <main>
           <section className="left-container">
             <div className="story-container">
-              {this.state.userData.length > 0 && (
-                <StoryList userData={this.state.userData} />
-              )}
+              {userData.length > 0 && <StoryList userData={userData} />}
             </div>
             <Feed
-              commentList={this.state.commentList}
+              commentList={commentList}
               handleInput={this.handleInput}
               handleKeyDown={this.handleKeyDown}
               addComment={this.addComment}
@@ -93,9 +92,7 @@ class Main extends React.Component {
                 <h3>회원님을 위한 추천</h3>
                 <span>모두 보기</span>
               </article>
-              {this.state.userData.length > 0 && (
-                <RecommendUser userData={this.state.userData} />
-              )}
+              {userData.length > 0 && <RecommendUser userData={userData} />}
             </section>
             <footer>
               <ul className="footer-upper-deck">

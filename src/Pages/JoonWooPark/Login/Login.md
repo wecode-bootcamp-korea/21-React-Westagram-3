@@ -65,7 +65,3 @@ if (inputId.includes('@') && inputPassword.length >= 5) {
   isValidate = true;
 }
 ```
-
-## Personal Mission
-
-### 1. data.json에 있는 user만 로그인 가능하게 해보기

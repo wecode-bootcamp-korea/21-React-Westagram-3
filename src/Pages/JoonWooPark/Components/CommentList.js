@@ -6,7 +6,6 @@ class CommentList extends React.Component {
     this.state = {};
   }
   render() {
-    console.log(this.props);
     const { commentList } = this.props;
     return commentList.map(data => {
       return (

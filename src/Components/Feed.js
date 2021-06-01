@@ -3,6 +3,7 @@ import CommentList from '../Pages/JoonWooPark/Components/CommentList';
 
 class Feed extends React.Component {
   render() {
+    const { commentList, handleInput, handleKeyDown, addComment } = this.props;
     return (
       <div className="feeds-container">
         <section className="feed-personal-info">
@@ -29,9 +30,7 @@ class Feed extends React.Component {
             <span className="info-personal-content">제주도 유채꽃 벚꽃</span>
           </article>
           <ul className="comment-list">
-            {this.props.commentList && (
-              <CommentList commentList={this.props.commentList} />
-            )}
+            {commentList && <CommentList commentList={commentList} />}
           </ul>
           <article className="activity-time">11시간 전</article>
         </section>
@@ -42,13 +41,10 @@ class Feed extends React.Component {
             className="input-comment"
             placeholder="댓글 달기..."
             name="inputComment"
-            onChange={e => this.props.handleInput(e)}
-            onKeyDown={e => this.props.handleKeyDown(e)}
+            onChange={e => handleInput(e)}
+            onKeyDown={e => handleKeyDown(e)}
           />
-          <span
-            className="input-submit"
-            onClick={() => this.props.addComment()}
-          >
+          <span className="input-submit" onClick={() => addComment()}>
             게시
           </span>
         </section>

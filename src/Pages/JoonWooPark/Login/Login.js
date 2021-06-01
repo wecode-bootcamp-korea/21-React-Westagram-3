@@ -31,6 +31,7 @@ class Login extends React.Component {
   };
 
   render() {
+    const { isDisabled } = this.state;
     return (
       <div className="JoonWooPark">
         <main>
@@ -54,14 +55,10 @@ class Login extends React.Component {
 
             <Link
               to="/main-joon"
-              className={
-                this.state.isDisabled ? 'link-button' : 'link-button active'
-              }
+              className={isDisabled ? 'link-button' : 'link-button active'}
             >
               <button
-                className={
-                  this.state.isDisabled ? 'login-button' : 'login-button active'
-                }
+                className={isDisabled ? 'login-button' : 'login-button active'}
               >
                 로그인
               </button>
