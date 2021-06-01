@@ -1,10 +1,10 @@
-import React from 'react';
 import Nav from '../../../Components/Nav';
-import CommentList from '../Components/CommentList';
-import RecommendUser from '../Components/RecommendUser';
+import React from 'react';
 import StoryList from '../Components/StoryList';
-import jsonData from '../data.json';
+import jsonData from '../userData.json';
+import RecommendUser from '../Components/RecommendUser';
 import './Main.scss';
+import Feed from '../../../Components/Feed';
 
 class Main extends React.Component {
   constructor() {
@@ -22,7 +22,11 @@ class Main extends React.Component {
   }
 
   addData = () => {
-    this.setState({ userData: jsonData });
+    fetch('http://localhost:3000/data/ParkJoonWoo/commentData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ commentList: data, userData: jsonData });
+      });
   };
 
   handleInput = e => {
@@ -45,7 +49,12 @@ class Main extends React.Component {
     if (!inputComment) {
       return;
     } else {
-      const addCommentToList = commentList.concat(inputComment);
+      const newObj = {
+        id: commentList.length + 1,
+        userName: 'Walsh',
+        content: inputComment,
+      };
+      const addCommentToList = commentList.concat(newObj);
       this.setState({ commentList: addCommentToList });
       input.value = '';
     }
@@ -62,57 +71,12 @@ class Main extends React.Component {
                 <StoryList userData={this.state.userData} />
               )}
             </div>
-            <div className="feeds-container">
-              <section className="feed-personal-info">
-                <span className="personal-photo"></span>
-                <span className="personal-id">front_devpark</span>
-              </section>
-              <section className="feed-photo-container">
-                <img
-                  alt="feed"
-                  src="/images/JoonWooPark/feeds/jeju_blossom.jpeg"
-                  className="feed-photo"
-                />
-              </section>
-              <section className="feed-activity">
-                <article className="activity-icons">
-                  <img alt="heart" src="/Images/nav/heart.svg" />
-                  <i className="far fa-comment"></i>
-                  <i className="far fa-paper-plane"></i>
-                  <i className="far fa-bookmark"></i>
-                </article>
-                <article className="activity-good-number">좋아요 12개</article>
-                <article className="activity-info">
-                  <span className="info-personal-id">front_devpark</span>
-                  <span className="info-personal-content">
-                    제주도 유채꽃 벚꽃
-                  </span>
-                </article>
-                <ul className="comment-list">
-                  {this.state.commentList && (
-                    <CommentList commentList={this.state.commentList} />
-                  )}
-                </ul>
-                <article className="activity-time">11시간 전</article>
-              </section>
-              <section className="input-container">
-                <i className="far fa-grin"></i>
-                <input
-                  type="text"
-                  className="input-comment"
-                  placeholder="댓글 달기..."
-                  name="inputComment"
-                  onChange={e => this.handleInput(e)}
-                  onKeyDown={e => this.handleKeyDown(e)}
-                />
-                <span
-                  className="input-submit"
-                  onClick={() => this.addComment()}
-                >
-                  게시
-                </span>
-              </section>
-            </div>
+            <Feed
+              commentList={this.state.commentList}
+              handleInput={this.handleInput}
+              handleKeyDown={this.handleKeyDown}
+              addComment={this.addComment}
+            />
           </section>
           <aside className="right-container">
             <section className="login-user-container">
