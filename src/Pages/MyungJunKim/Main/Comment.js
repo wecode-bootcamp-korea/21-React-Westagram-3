@@ -6,7 +6,7 @@ class Comment extends React.Component {
       <>
         {this.props.commentList.map((comment, idx) => (
           <li key={idx}>
-            <b>{comment}</b>
+            <b>myxxjun</b>
             {comment}
             <button>♡</button>
           </li>

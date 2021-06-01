@@ -1,47 +1,28 @@
 import React, { Component } from 'react';
+import Contents from '../Main/Contents';
 import Nav from '../../../Components/Nav';
-import Comments from '../Main/Comments';
-import Comment from '../Main/Comment';
-
 import './Main.scss';
 
 class Main extends Component {
   constructor() {
     super();
     this.state = {
-      inputValue: '',
-      commentsList: [],
-      commentList: [],
+      contentsData: [],
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/commentData.json', {
-      method: 'GET',
-    })
+    fetch('http://localhost:3000/data/ContentsData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          commentsList: data,
+          contentsData: data,
         });
       });
   }
 
-  handleinputarea = e => {
-    this.setState({
-      inputValue: e.target.value,
-    });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    this.setState({
-      inputValue: '',
-      commentList: this.state.commentList.concat([this.state.inputValue]),
-    });
-  };
-
   render() {
+    const { contentsData } = this.state;
     return (
       <div className="main-myung">
         <Nav />
@@ -179,95 +160,9 @@ class Main extends Component {
                   </li>
                 </ul>
               </div>
-              <section className="contents">
-                <header className="contents__header">
-                  <div>
-                    <img
-                      className="contents__profile-image"
-                      alt="계정 프로필사진"
-                      src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
-                    />
-                    <span>hey_css</span>
-                  </div>
-                  <i className="fas fa-ellipsis-h"></i>
-                </header>
-                <article>
-                  <img
-                    className="contents__image"
-                    alt="피드 이미지"
-                    src="https://images.unsplash.com/photo-1530018352490-c6eef07fd7e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=961&q=80"
-                  />
-                </article>
-                <article className="contents__icons">
-                  <div>
-                    <span>
-                      <i className="far fa-heart"></i>
-                    </span>
-                    <span>
-                      <i className="far fa-comment"></i>
-                    </span>
-                    <span>
-                      <i className="far fa-paper-plane"></i>
-                    </span>
-                  </div>
-                  <div>
-                    <span>
-                      <i className="far fa-bookmark"></i>
-                    </span>
-                  </div>
-                </article>
-                <article className="contents__feedback">
-                  <div>
-                    <img
-                      className="contents__small-image"
-                      alt="좋아요 계정들 프로필사진"
-                      src="https://images.unsplash.com/photo-1530018352490-c6eef07fd7e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=961&q=80"
-                    />
-                  </div>
-                  <div>
-                    <span>
-                      <b>myxxjun</b> 님 외 <b>1,840</b>명 이 좋아합니다
-                    </span>
-                  </div>
-                </article>
-                <article className="contents__info">
-                  <span>
-                    <b>hey_css</b> 2022년 출시예정 애플바이크!! 뒷바퀴...
-                    <span className="more">더보기</span>
-                  </span>
-                </article>
-                <div className="more-comment">
-                  <span className="more">댓글 311개 모두 보기</span>
-                </div>
-                <div className="comment-container">
-                  <ul>
-                    <Comments commentsList={this.state.commentsList} />
-                    <Comment commentList={this.state.commentList} />
-                  </ul>
-                </div>
-                <article className="comment-input-container">
-                  <div>
-                    <i className="far fa-smile"></i>
-                  </div>
-                  <form
-                    className="js-comment-form"
-                    onSubmit={this.handleSubmit}
-                  >
-                    <input
-                      onChange={this.handleinputarea}
-                      value={this.state.inputValue}
-                      className="js-comment-inputarea"
-                      placeholder="댓글 달기..."
-                    ></input>
-                    <button
-                      className="js-comment-button"
-                      disabled={this.state.inputValue.length < 1}
-                    >
-                      게시
-                    </button>
-                  </form>
-                </article>
-              </section>
+              {contentsData.length > 0 && (
+                <Contents contentsData={contentsData} />
+              )}
             </div>
             <section className="main-right">
               <div className="my-profile">

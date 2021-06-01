@@ -4,8 +4,8 @@ class Comments extends React.Component {
   render() {
     return (
       <>
-        {this.props.commentsList.map((comment, idx) => (
-          <li key={idx}>
+        {this.props.contentsData.map(comment => (
+          <li key={comment.id}>
             <b>{comment.userName}</b>
             {comment.content}
             <button>♡</button>
