@@ -48,6 +48,14 @@
         height: 40px;
         margin-top: 10px;
         font-size: 17px;
+
+        &:disabled {
+          background-color: var(--login_button_color);
+        }
+
+        &:enabled {
+          cursor: pointer;
+        }
       }
     }
 

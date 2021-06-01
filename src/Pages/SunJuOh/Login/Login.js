@@ -10,15 +10,9 @@ class Login extends React.Component {
     };
   }
 
-  handleIdInput = event => {
+  handleInput = event => {
     this.setState({
-      idValue: event.target.value,
-    });
-  };
-
-  handlePasswordInput = event => {
-    this.setState({
-      passwordValue: event.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -38,19 +32,21 @@ class Login extends React.Component {
           </header>
           <main>
             <input
+              name="idValue"
               type="text"
               value={idValue}
-              onChange={this.handleIdInput}
+              onChange={this.handleInput}
               placeholder="전화번호, 사용자 이름 또는 이메일"
             />
             <input
+              name="passwordValue"
               type="password"
               value={passwordValue}
-              onChange={this.handlePasswordInput}
+              onChange={this.handleInput}
               placeholder="비밀번호"
             />
             <button
-              style={{ backgroundColor: buttonActive ? '#1182d9' : '#b2dffc' }}
+              disabled={buttonActive ? false : true}
               onClick={this.goToMain}
             >
               로그인

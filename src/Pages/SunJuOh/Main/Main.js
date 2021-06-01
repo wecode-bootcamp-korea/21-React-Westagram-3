@@ -1,9 +1,72 @@
 import React from 'react';
 import './Main.scss';
 import Nav from '../../../Components/Nav';
+import Feed from '../Feed/Feed';
 
 class Main extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+      feedData: [],
+    };
+  }
+
+  handleInput = event => {
+    this.setState({
+      value: event.target.value,
+    });
+  };
+
+  //addComment부분 수정중
+  addComment = () => {
+    const { value, feedData } = this.state;
+
+    const newObj = {
+      id: feedData.commentList.length + 1,
+      userName: 'annonymous',
+      content: value,
+    };
+
+    // feedData.map((valu, index) => {
+    //   return feedData[index].commentList[3].concat(newObj)
+
+    //    const addCommentToArray = feedData[index].commentList[3].concat({
+    //     id: feedData.commentList.id.length + 1,
+    //     userName: '_ocean_zoo',
+    //     content: value,
+    //   });
+
+    //   this.setState({
+    //     feedData: addCommentToArray,
+    //     value: '',
+    //   });
+    // });
+  };
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/feedData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          feedData: data,
+        });
+      });
+  }
+
+  handleEnterKey = event => {
+    console.log(event);
+
+    if (event.key === 'Enter') {
+      this.addComment();
+    }
+  };
+
   render() {
+    const { feedData, value } = this.state;
+
     return (
       <div className="superContainer">
         <section className="allWrapper">
@@ -42,91 +105,23 @@ class Main extends React.Component {
                     </li>
                   </ul>
                 </div>
-                <article>
-                  <div className="feedUpper">
-                    <img
-                      className="mainProfile"
-                      alt="profile"
-                      src="/Images/SunJuOh/hyoseop.jpeg"
+                {feedData.map((feed, index) => {
+                  return (
+                    <Feed
+                      key={`feed ${index}`}
+                      feed={feed}
+                      handleInput={this.handleInput}
+                      handleEnterKey={this.handleEnterKey}
+                      addComment={this.addComment}
+                      value={value}
                     />
-                    <div className="feedProfile">
-                      <strong>imhyoseop</strong>
-                      <img src="/Images/SunJuOh/more.svg" />
-                    </div>
-                  </div>
-                  <img
-                    className="feedImage"
-                    alt="main-image"
-                    src="/Images/SunJuOh/feed.jpeg"
-                  />
-                  <div className="feedLower">
-                    <div className="feedIcon">
-                      <div className="icon-left">
-                        <div className="iconSpace">
-                          <img alt="heart" src="/Images/SunJuOh/heart.svg" />
-                          <img
-                            alt="bell"
-                            src="/Images/SunJuOh/notifiations.svg"
-                          />
-                          <img alt="send" src="/Images/SunJuOh/share.svg" />
-                        </div>
-                      </div>
-                      <div className="icon-right">
-                        <img
-                          alt="bookmark"
-                          src="/Images/SunJuOh/bookmark.svg"
-                        />
-                      </div>
-                    </div>
-                    <div className="contentWrapper">
-                      <div className="clickGood">
-                        <img
-                          alt="profile-image"
-                          src="/Images/SunJuOh/sohee.jpeg"
-                        />
-                        <strong>blue_sky</strong>
-                        <span>님</span>
-                        <strong>외 2512명</strong>
-                        <span>이 좋아합니다</span>
-                      </div>
-                      <div className="myContent">
-                        <strong>imhyoseop</strong>
-                        <span>happy :)</span>
-                      </div>
-                      <a href="">댓글 3개 모두 보기</a>
-                      <ul className="commentList">
-                        <li>
-                          <strong>june___kang</strong>
-                          <span>멋있어요~~~~</span>
-                        </li>
-                        <li>
-                          <strong>araaaaan</strong>
-                          <span>저도 여행 가고싶어요!!!!</span>
-                        </li>
-                      </ul>
-                      <p>21분 전</p>
-                    </div>
-                    <div className="inputWrapper">
-                      <img
-                        alt="happyface"
-                        src="/Images/SunJuOh/happyface.png"
-                      />
-                      <div className="inputBox">
-                        <input
-                          className="inputValue"
-                          type="text"
-                          placeholder="댓글 달기..."
-                        />
-                        <button className="pressPost">게시</button>
-                      </div>
-                    </div>
-                  </div>
-                </article>
+                  );
+                })}
               </div>
               <div className="main-right">
                 <div className="profileBox">
                   <div className="imageBox">
-                    <img alt="my-image" src="/Images/SunJuOh/me.jpeg" />
+                    <img alt="me" src="/Images/SunJuOh/me.jpeg" />
                   </div>
                   <div className="nameBox">
                     <strong>_ocean_zoo</strong>
