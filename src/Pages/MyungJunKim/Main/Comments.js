@@ -4,13 +4,11 @@ class Comments extends React.Component {
   render() {
     return (
       <>
-        {this.props.contentsData.map(comment => (
-          <li key={comment.id}>
-            <b>{comment.userName}</b>
-            {comment.content}
-            <button>♡</button>
-          </li>
-        ))}
+        <li key={this.props.contentsData.id}>
+          <b>{this.props.contentsData.userName}</b>
+          {this.props.contentsData.content}
+          <button>♡</button>
+        </li>
       </>
     );
   }

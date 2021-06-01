@@ -160,9 +160,8 @@ class Main extends Component {
                   </li>
                 </ul>
               </div>
-              {contentsData.length > 0 && (
-                <Contents contentsData={contentsData} />
-              )}
+              {contentsData.length > 0 &&
+                contentsData.map(data => <Contents contentsData={data} />)}
             </div>
             <section className="main-right">
               <div className="my-profile">

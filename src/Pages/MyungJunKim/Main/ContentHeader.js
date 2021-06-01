@@ -8,9 +8,9 @@ class ContentHeader extends Component {
           <img
             className="contents__profile-image"
             alt="계정 프로필사진"
-            src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
+            src={this.props.headerList.profileSrc}
           />
-          <span>ya dan nat da</span>
+          <span>{this.props.headerList.profileName}</span>
         </div>
 
         <i className="fas fa-ellipsis-h"></i>
