@@ -20,6 +20,18 @@ class Login extends React.Component {
     this.props.history.push('/main-sun');
   };
 
+  fetchRegister = () => {
+    fetch('http://10.58.5.164:8000/user/Signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.idValue,
+        password: this.state.passwordValue,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log('결과: ', result));
+  };
+
   render() {
     const { idValue, passwordValue } = this.state;
     const buttonActive = idValue.includes('@') && passwordValue.length >= 5;
@@ -47,7 +59,7 @@ class Login extends React.Component {
             />
             <button
               disabled={buttonActive ? false : true}
-              onClick={this.goToMain}
+              onClick={this.fetchRegister}
             >
               로그인
             </button>

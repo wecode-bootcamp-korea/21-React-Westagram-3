@@ -87,6 +87,11 @@ main {
           }
         }
 
+        .feedImage {
+          width: 700px;
+          height: 700px;
+        }
+
         .feedLower {
           background-color: var(--all_background_color);
 
@@ -102,6 +107,19 @@ main {
                 margin-left: 15px;
                 @include flexSet(row, space-between, flex-start);
                 width: 100%;
+
+                i {
+                  margin-top: 5px;
+                  cursor: pointer;
+                }
+
+                .heart-black {
+                  color: black;
+                }
+
+                .heart-red {
+                  color: red;
+                }
               }
             }
 

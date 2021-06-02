@@ -9,17 +9,13 @@ class Main extends React.Component {
     this.state = {
       value: '',
       feedData: [],
+      isFeedLike: false,
     };
   }
 
-  handleInput = event => {
-    this.setState({
-      value: event.target.value,
-    });
-  };
-
-  addComment = feedId => {
-    const { value, feedData } = this.state;
+  addComment = (e, feedId, value, test) => {
+    e.preventDefault();
+    const { feedData } = this.state;
 
     const newObj = {
       id: feedData[feedId].commentList.length + 1,
@@ -35,10 +31,12 @@ class Main extends React.Component {
       return feed;
     });
 
-    this.setState({
-      feedData: newComment,
-      value: '',
-    });
+    this.setState(
+      {
+        feedData: newComment,
+      },
+      test
+    );
   };
 
   componentDidMount() {
@@ -54,7 +52,7 @@ class Main extends React.Component {
   }
 
   render() {
-    const { feedData, value } = this.state;
+    const { feedData, isFeedLike } = this.state;
     return (
       <div className="superContainer">
         <section className="allWrapper">
@@ -98,9 +96,6 @@ class Main extends React.Component {
                     <Feed
                       key={feed.feedId}
                       feed={feed}
-                      value={value}
-                      handleInput={this.handleInput}
-                      handleEnterKey={this.handleEnterKey}
                       addComment={this.addComment}
                     />
                   );

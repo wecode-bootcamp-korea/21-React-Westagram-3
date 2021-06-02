@@ -3,8 +3,21 @@ import CommentInput from '../CommentInput/CommentInput';
 import CommentsList from '../CommentsList/CommentsList';
 import '../Main/Main.scss';
 class Feed extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFeedLike: false,
+    };
+  }
+
+  toggleLike = () => {
+    this.setState({
+      isFeedLike: !this.state.isFeedLike,
+    });
+  };
+
   render() {
-    const { feed, handleInput, handleEnterKey, value, addComment } = this.props;
+    const { feed, addComment } = this.props;
 
     return (
       <article>
@@ -20,7 +33,14 @@ class Feed extends React.Component {
           <div className="feedIcon">
             <div className="icon-left">
               <div className="iconSpace">
-                <img alt="heart" src="/Images/SunJuOh/heart.svg" />
+                <i
+                  className={
+                    this.state.isFeedLike
+                      ? 'fas fa-heart fa-lg heart-red'
+                      : 'far fa-heart fa-lg heart-black'
+                  }
+                  onClick={this.toggleLike}
+                />
                 <img alt="bell" src="/Images/SunJuOh/notifiations.svg" />
                 <img alt="send" src="/Images/SunJuOh/share.svg" />
               </div>
@@ -59,13 +79,7 @@ class Feed extends React.Component {
           </div>
           <div className="inputWrapper">
             <img alt="happyface" src="/Images/SunJuOh/happyface.png" />
-            <CommentInput
-              feedId={feed.feedId}
-              value={value}
-              addComment={addComment}
-              handleInput={handleInput}
-              handleEnterKey={handleEnterKey}
-            />
+            <CommentInput feedId={feed.feedId} addComment={addComment} />
           </div>
         </div>
       </article>

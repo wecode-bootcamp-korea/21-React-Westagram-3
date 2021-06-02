@@ -27,7 +27,7 @@
     "feedId": 1,
     "feedUser": "songkang",
     "feedProfile": "/Images/SunJuOh/songkang.jpeg",
-    "feedImage": "http://www.topstarnews.net/news/photo/201908/662912_367134_3722.jpg",
+    "feedImage": "https://content.presspage.com/uploads/2379/1920_ocean-sunset-195865.jpg?10000",
     "feedContent": "내용이다2",
     "commentList": [
       {
@@ -51,7 +51,7 @@
     "feedId": 2,
     "feedUser": "seonho",
     "feedProfile": "/Images/SunJuOh/seonho.jpeg",
-    "feedImage": "http://www.topstarnews.net/news/photo/201908/662912_367134_3722.jpg",
+    "feedImage": "/Images/SunJuOh/3.JPG",
     "feedContent": "내용이다3",
     "commentList": [
       {
