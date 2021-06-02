@@ -7,23 +7,21 @@ class CommentInput extends React.Component {
 
     return (
       <form>
-        <div className="inputBox">
-          <input
-            className="inputValue"
-            type="text"
-            value={value}
-            onChange={handleInput}
-            placeholder="댓글 달기..."
-          />
-          <button
-            type="submit"
-            className="pressPost"
-            onClick={() => addComment(feedId)}
-            disabled={buttonValid ? false : true}
-          >
-            게시
-          </button>
-        </div>
+        <input
+          className="inputValue"
+          type="text"
+          value={value}
+          onChange={handleInput}
+          placeholder="댓글 달기..."
+        />
+        <button
+          type="submit"
+          className="pressPost"
+          onClick={() => addComment(feedId)}
+          disabled={buttonValid ? false : true}
+        >
+          게시
+        </button>
       </form>
     );
   }

@@ -165,38 +165,36 @@ main {
             }
 
             form {
-              .inputBox {
-                display: flex;
-                width: 100%;
+              display: flex;
+              width: 100%;
 
-                input {
-                  margin: 15px 0;
-                  padding: 10px 0;
-                  flex: 9;
-                  border: none;
-                  font-size: 15px;
+              input {
+                margin: 15px 0;
+                padding: 10px 0;
+                flex: 9;
+                border: none;
+                font-size: 15px;
 
-                  &:focus {
-                    outline: none;
-                  }
+                &:focus {
+                  outline: none;
+                }
+              }
+
+              button {
+                margin: 15px 0;
+                flex: 1;
+                border: none;
+                background-color: var(--all_background_color);
+                color: var(--main_recommend_follow_text_color);
+                font-weight: bold;
+                font-size: 15px;
+
+                &:enabled {
+                  cursor: pointer;
                 }
 
-                button {
-                  margin: 15px 0;
-                  flex: 1;
-                  border: none;
-                  background-color: var(--all_background_color);
-                  color: var(--main_recommend_follow_text_color);
-                  font-weight: bold;
-                  font-size: 15px;
-
-                  &:enabled {
-                    cursor: pointer;
-                  }
-
-                  &:disabled {
-                    color: var(--login_button_color);
-                  }
+                &:disabled {
+                  color: var(--login_button_color);
                 }
               }
             }
