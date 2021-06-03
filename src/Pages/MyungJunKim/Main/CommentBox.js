@@ -1,16 +1,20 @@
 import React from 'react';
+import MoreComment from '../Main/MoreComment';
 import Comments from '../Main/Comments';
 import Comment from '../Main/Comment';
+import { Link } from 'react-router-dom';
 
 class CommentBox extends React.Component {
   render() {
-    const { contentsData, commentList, inputValue } = this.props;
+    const { contentsData, commentList, inputValue, handleBtn } = this.props;
     return (
       <>
         <article className="contents__icons">
           <div>
             <span>
-              <i className="far fa-heart"></i>
+              <button onClick={handleBtn}>
+                <i className={this.props.isBtnLike}></i>
+              </button>
             </span>
             <span>
               <i className="far fa-comment"></i>
@@ -41,12 +45,25 @@ class CommentBox extends React.Component {
         </article>
         <article className="contents__info">
           <span>
-            <b>hey_css</b> 2022년 출시예정 애플바이크!! 뒷바퀴...
+            <b>{contentsData.profileName}</b> 멋지게 담배피기!...
             <span className="more">더보기</span>
           </span>
         </article>
         <div className="more-comment">
-          <span className="more">댓글 311개 모두 보기</span>
+          <span className="more">
+            <Link onClick={this.props.handleCommentModal}>댓글 보기</Link>
+            {this.props.isCommentModal && (
+              <MoreComment
+                isCommentModal={this.props.isCommentModal}
+                handleCommentModal={this.props.handleCommentModal}
+                contentsData={contentsData}
+                commentList={commentList}
+                handleInputarea={this.props.handleInputarea}
+                handleSubmit={this.props.handleSubmit}
+                inputValue={inputValue}
+              />
+            )}
+          </span>
         </div>
         <div className="comment-container">
           <ul>

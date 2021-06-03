@@ -5,6 +5,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    b {
+      font-weight: 700;
+    }
   }
 
   main {
@@ -156,6 +160,23 @@
           span {
             font-size: 24px;
             margin: 9px;
+
+            button {
+              background-color: #fff;
+              border: none;
+
+              i {
+                font-size: 24px;
+              }
+
+              .btn-empty {
+                -webkit-text-stroke: 2px #000;
+                -webkit-text-fill-color: transparent;
+              }
+              .btn-like {
+                color: red;
+              }
+            }
           }
         }
 
@@ -184,7 +205,256 @@
         }
 
         .more {
-          color: #8e8e8e;
+          color: #b8b8b8;
+
+          a {
+            text-decoration: none;
+            color: #999999;
+            font-size: 15px;
+          }
+
+          .modal-background {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(14, 13, 13, 0.3);
+            z-index: 100;
+
+            .more-modal {
+              display: flex;
+              position: absolute;
+              height: 600px;
+              width: 935px;
+              background-color: rgb(165, 33, 33);
+
+              .modal-image {
+                width: 60%;
+                background-color: #fff;
+
+                img {
+                  width: 560px;
+                  height: 600px;
+                }
+              }
+
+              .modal-container {
+                width: 40%;
+                background-color: #fff;
+
+                .img-background {
+                  display: flex;
+                  justify-content: center;
+                  width: 40px;
+                  height: 40px;
+                  margin-left: 10px;
+                  border-radius: 50%;
+                  background: linear-gradient(
+                      238deg,
+                      rgba(201, 45, 141, 1) 0%,
+                      rgba(249, 156, 76, 1) 100%
+                    ),
+                    no-repeat;
+                  animation: spin 1s linear infinite;
+
+                  .small-img-background {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 34px;
+                    height: 34px;
+                    background-color: #fff;
+                    border-radius: 50%;
+
+                    img {
+                      width: 30px;
+                      height: 30px;
+                      border-radius: 100%;
+                    }
+                  }
+                }
+                .modal-header {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  height: 75px;
+                  border-bottom: 1px solid #dbdbdb;
+
+                  div {
+                    display: flex;
+                    align-items: center;
+
+                    b {
+                      margin-left: 7px;
+                      color: black;
+                      font-weight: 700;
+                    }
+                  }
+
+                  i {
+                    margin-right: 20px;
+                    color: black;
+                    font-size: 12px;
+                  }
+                }
+
+                .modal-comment {
+                  height: 360px;
+                  overflow-y: scroll;
+                  padding-top: 20px;
+                  padding-left: 5px;
+                  padding-right: 10px;
+                  width: 100%;
+                  border-bottom: 1px solid #dbdbdb;
+
+                  .modal-info {
+                    display: flex;
+                    padding: 0;
+                    .modal-img-container {
+                      width: 40px;
+                      margin-right: 15px;
+                    }
+                    .img-background {
+                      display: flex;
+                      align-items: center;
+                      margin-right: 15px;
+                    }
+                    span {
+                      font-size: 14px;
+                      color: black;
+                      b {
+                        margin-left: 7px;
+                        margin-right: 7px;
+                        color: black;
+                        font-weight: 700;
+                        font-size: 15px;
+                      }
+                      .hash-tag {
+                        color: #22427e;
+                      }
+
+                      span:last-child {
+                        font-size: 14px;
+                        color: #b8b8b8;
+                      }
+                    }
+                  }
+                  .modal-comments {
+                    display: flex;
+                    align-items: center;
+
+                    .img-background {
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      width: 43px;
+                      margin-right: 10px;
+                    }
+                    ul {
+                      flex-direction: column;
+                      width: 100%;
+
+                      li {
+                        display: flex;
+                        margin-right: 5px;
+                        margin-left: 0px;
+                        margin-top: 20px;
+                        font-size: 14px;
+                        color: black;
+
+                        img {
+                          height: 20px;
+                          width: 20px;
+                        }
+
+                        b {
+                          margin-right: 5px;
+                        }
+
+                        button {
+                          margin-left: 10px;
+                          border: none;
+                          background-color: #fff;
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .modal-icon {
+                  height: 100px;
+                  border-bottom: 1px solid #dbdbdb;
+                  color: black;
+
+                  .modal-icon-container {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 10px;
+                    font-size: 30px;
+
+                    & :first-child {
+                      span {
+                        margin-left: 10px;
+                      }
+                    }
+                    .book-mark {
+                      span {
+                        margin-right: 10px;
+                      }
+                    }
+                  }
+
+                  .modal-icon__info {
+                    margin-left: 10px;
+                    div {
+                      font-size: 15px;
+                      margin-top: 10px;
+
+                      div &:last-child {
+                        font-size: 12px;
+                        color: gray;
+                      }
+                    }
+                  }
+                }
+
+                form {
+                  height: 60px;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  div {
+                    display: flex;
+                    justify-content: space-between;
+                    color: black;
+                    i {
+                      margin-left: 10px;
+                      margin-right: 10px;
+                      font-size: 25px;
+                    }
+                    input {
+                      width: 280px;
+                      border: none;
+
+                      &:focus {
+                        outline: none;
+                      }
+                    }
+                  }
+                  button {
+                    margin-right: 10px;
+                    border: none;
+                    background-color: #fff;
+                    color: #0095f6;
+                  }
+                }
+              }
+            }
+          }
         }
 
         .more-comment {

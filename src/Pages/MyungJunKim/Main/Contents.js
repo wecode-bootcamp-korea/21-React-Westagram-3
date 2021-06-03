@@ -9,8 +9,27 @@ class Contents extends Component {
     this.state = {
       inputValue: '',
       commentList: [],
+      likeState: true,
+      isBtnLike: 'fas fa-heart btn-empty',
+      isCommentModal: false,
     };
   }
+
+  handleCommentModal = e => {
+    document.body.style.overflow = 'auto';
+    this.setState({
+      isCommentModal: !this.state.isCommentModal,
+    });
+  };
+
+  handleBtn = () => {
+    !this.state.likeState === true
+      ? this.setState({ likeState: true, isBtnLike: 'fas fa-heart btn-like' })
+      : this.setState({
+          likeState: false,
+          isBtnLike: 'fas fa-heart btn-empty',
+        });
+  };
 
   handleInputarea = e => {
     this.setState({
@@ -27,7 +46,7 @@ class Contents extends Component {
   };
 
   render() {
-    const { inputValue, commentList } = this.state;
+    const { inputValue, commentList, isBtnLike, isCommentModal } = this.state;
     const { contentsData } = this.props;
     return (
       <>
@@ -38,8 +57,12 @@ class Contents extends Component {
             inputValue={inputValue}
             commentList={commentList}
             contentsData={contentsData}
+            isBtnLike={isBtnLike}
+            isCommentModal={isCommentModal}
             handleInputarea={this.handleInputarea}
             handleSubmit={this.handleSubmit}
+            handleBtn={this.handleBtn}
+            handleCommentModal={this.handleCommentModal}
           />
         </section>
       </>
