@@ -1,7 +1,7 @@
 import React from 'react';
-import './Main.scss';
 import Nav from '../../../Components/Nav';
 import Feed from '../Feed/Feed';
+import './Main.scss';
 
 class Main extends React.Component {
   constructor(props) {
@@ -9,11 +9,23 @@ class Main extends React.Component {
     this.state = {
       value: '',
       feedData: [],
-      isFeedLike: false,
     };
   }
 
-  addComment = (e, feedId, value, test) => {
+  toggleLike = feedId => {
+    const { feedData } = this.state;
+
+    const changeHeart = feedData.map(feed => {
+      if (feedId === feed.feedId) {
+        feed.isFeedLike = !feed.isFeedLike;
+      }
+      return feed;
+    });
+
+    this.setState({ feedData: changeHeart });
+  };
+
+  addComment = (e, feedId, value, reset) => {
     e.preventDefault();
     const { feedData } = this.state;
 
@@ -25,8 +37,7 @@ class Main extends React.Component {
 
     const newComment = feedData.map(feed => {
       if (feed.feedId === feedId) {
-        feedData[feedId].commentList =
-          feedData[feedId].commentList.concat(newObj);
+        feed.commentList = feed.commentList.concat(newObj);
       }
       return feed;
     });
@@ -35,7 +46,7 @@ class Main extends React.Component {
       {
         feedData: newComment,
       },
-      test
+      reset
     );
   };
 
@@ -52,7 +63,7 @@ class Main extends React.Component {
   }
 
   render() {
-    const { feedData, isFeedLike } = this.state;
+    const { feedData } = this.state;
     return (
       <div className="superContainer">
         <section className="allWrapper">
@@ -97,6 +108,7 @@ class Main extends React.Component {
                       key={feed.feedId}
                       feed={feed}
                       addComment={this.addComment}
+                      toggleLike={this.toggleLike}
                     />
                   );
                 })}

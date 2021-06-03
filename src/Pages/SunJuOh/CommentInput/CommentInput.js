@@ -14,7 +14,7 @@ class CommentInput extends React.Component {
     });
   };
 
-  test = () => {
+  reset = () => {
     this.setState({
       value: '',
     });
@@ -37,7 +37,7 @@ class CommentInput extends React.Component {
         <button
           type="submit"
           className="pressPost"
-          onClick={event => addComment(event, feedId, value, this.test)}
+          onClick={event => addComment(event, feedId, value, this.reset)}
           disabled={buttonValid ? false : true}
         >
           게시

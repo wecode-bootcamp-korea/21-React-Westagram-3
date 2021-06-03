@@ -11,8 +11,9 @@ class Login extends React.Component {
   }
 
   handleInput = event => {
+    const { name, value } = event.target;
     this.setState({
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
   };
 

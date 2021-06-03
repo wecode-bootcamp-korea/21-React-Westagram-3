@@ -5,6 +5,7 @@
     "feedProfile": "/Images/SunJuOh/sohee.jpeg",
     "feedImage": "http://www.topstarnews.net/news/photo/201908/662912_367134_3722.jpg",
     "feedContent": "내용이다1",
+    "isFeedLike": false,
     "commentList": [
       {
         "id": 1,
@@ -29,6 +30,7 @@
     "feedProfile": "/Images/SunJuOh/songkang.jpeg",
     "feedImage": "https://content.presspage.com/uploads/2379/1920_ocean-sunset-195865.jpg?10000",
     "feedContent": "내용이다2",
+    "isFeedLike": false,
     "commentList": [
       {
         "id": 1,
@@ -53,6 +55,7 @@
     "feedProfile": "/Images/SunJuOh/seonho.jpeg",
     "feedImage": "/Images/SunJuOh/3.JPG",
     "feedContent": "내용이다3",
+    "isFeedLike": false,
     "commentList": [
       {
         "id": 1,

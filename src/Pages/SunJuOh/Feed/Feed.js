@@ -1,45 +1,40 @@
 import React from 'react';
-import CommentInput from '../CommentInput/CommentInput';
 import CommentsList from '../CommentsList/CommentsList';
+import CommentInput from '../CommentInput/CommentInput';
 import '../Main/Main.scss';
 class Feed extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isFeedLike: false,
-    };
-  }
-
-  toggleLike = () => {
-    this.setState({
-      isFeedLike: !this.state.isFeedLike,
-    });
-  };
-
   render() {
-    const { feed, addComment } = this.props;
+    const { feed, addComment, toggleLike } = this.props;
+    const {
+      feedProfile,
+      feedImage,
+      feedId,
+      isFeedLike,
+      feedUser,
+      feedContent,
+    } = feed;
 
     return (
       <article>
         <div className="feedUpper">
-          <img className="mainProfile" alt="profile" src={feed.feedProfile} />
+          <img className="mainProfile" alt="profile" src={feedProfile} />
           <div className="feedProfile">
-            <strong>{feed.feedUser}</strong>
+            <strong>{feedUser}</strong>
             <img src="/Images/SunJuOh/more.svg" />
           </div>
         </div>
-        <img className="feedImage" alt="main-image" src={feed.feedImage} />
+        <img className="feedImage" alt="main-image" src={feedImage} />
         <div className="feedLower">
           <div className="feedIcon">
             <div className="icon-left">
               <div className="iconSpace">
                 <i
                   className={
-                    this.state.isFeedLike
+                    isFeedLike
                       ? 'fas fa-heart fa-lg heart-red'
                       : 'far fa-heart fa-lg heart-black'
                   }
-                  onClick={this.toggleLike}
+                  onClick={() => toggleLike(feedId)}
                 />
                 <img alt="bell" src="/Images/SunJuOh/notifiations.svg" />
                 <img alt="send" src="/Images/SunJuOh/share.svg" />
@@ -58,8 +53,8 @@ class Feed extends React.Component {
               <span>이 좋아합니다</span>
             </div>
             <div className="myContent">
-              <strong>{feed.feedUser}</strong>
-              <span>{feed.feedContent}</span>
+              <strong>{feedUser}</strong>
+              <span>{feedContent}</span>
             </div>
             <a href="">댓글 3개 모두 보기</a>
             <div>
@@ -79,7 +74,7 @@ class Feed extends React.Component {
           </div>
           <div className="inputWrapper">
             <img alt="happyface" src="/Images/SunJuOh/happyface.png" />
-            <CommentInput feedId={feed.feedId} addComment={addComment} />
+            <CommentInput feedId={feedId} addComment={addComment} />
           </div>
         </div>
       </article>
