@@ -2,46 +2,51 @@ import React, { Component } from 'react';
 import Comment from '../Main/Comment';
 
 class MoreComment extends Component {
-  constructor() {
-    super();
+  componentDidMount() {
     document.body.style.overflow = 'hidden';
   }
+  componentWillUnmount() {
+    document.body.style.overflow = 'auto';
+  }
+
   render() {
+    const {
+      contentsData,
+      inputValue,
+      commentList,
+      handleCommentModal,
+      handleSubmit,
+      handleInputarea,
+    } = this.props;
     return (
-      <div className="modal-background" onClick={this.props.handleCommentModal}>
-        <div className="more-modal" onClick={e => e.stopPropagation()}>
+      <div className="modal-background" onClick={handleCommentModal}>
+        <div className="modal" onClick={e => e.stopPropagation()}>
           <div className="modal-image">
-            <img alt="프로필사진" src={this.props.contentsData.imgSrc} />
+            <img alt="프로필사진" src={contentsData.imgSrc} />
           </div>
           <div className="modal-container">
             <div className="modal-header">
               <div>
-                <div className="img-background">
-                  <div className="small-img-background">
-                    <img
-                      alt="계정 프로필사진"
-                      src={this.props.contentsData.profileSrc}
-                    />
+                <div className="profile-img-background">
+                  <div className="small-profile-img-background">
+                    <img alt="계정 프로필사진" src={contentsData.profileSrc} />
                   </div>
                 </div>
-                <b>{this.props.contentsData.profileName}</b>
+                <b>{contentsData.profileName}</b>
               </div>
               <i className="fas fa-ellipsis-h"></i>
             </div>
             <div className="modal-comment">
               <div className="modal-info">
                 <div className="modal-img-container">
-                  <div className="img-background">
-                    <div className="small-img-background">
-                      <img
-                        alt="프로필 사진"
-                        src={this.props.contentsData.profileSrc}
-                      />
+                  <div className="profile-img-background">
+                    <div className="small-profile-img-background">
+                      <img alt="프로필 사진" src={contentsData.profileSrc} />
                     </div>
                   </div>
                 </div>
                 <span>
-                  <b>{this.props.contentsData.profileName}</b>
+                  <b>{contentsData.profileName}</b>
                   멋지게 담배피기!
                   <br /> 두번째 사진 약간 짱구옆모습
                   <br /> 2021.05.30.
@@ -62,22 +67,19 @@ class MoreComment extends Component {
               </div>
               <div className="modal-comments">
                 <ul>
-                  <li key={this.props.contentsData.id}>
-                    <div className="img-background">
-                      <div className="small-img-background">
-                        <img
-                          alt="프로필 사진"
-                          src={this.props.contentsData.profileSrc}
-                        />
+                  <li key={contentsData.id}>
+                    <div className="profile-img-background">
+                      <div className="small-profile-img-background">
+                        <img alt="프로필 사진" src={contentsData.profileSrc} />
                       </div>
                     </div>
                     <div>
-                      <b>{this.props.contentsData.userName}</b>
-                      {this.props.contentsData.content}
+                      <b>{contentsData.userName}</b>
+                      {contentsData.content}
                     </div>
                     <button>♡</button>
                   </li>
-                  <Comment commentList={this.props.commentList} />
+                  <Comment commentList={commentList} />
                 </ul>
               </div>
             </div>
@@ -112,18 +114,16 @@ class MoreComment extends Component {
               </div>
             </div>
             <div>
-              <form onSubmit={this.props.handleSubmit}>
+              <form onSubmit={handleSubmit}>
                 <div>
                   <i className="far fa-smile"></i>
                   <input
                     placeholder="댓글 달기..."
-                    value={this.props.inputValue}
-                    onChange={this.props.handleInputarea}
+                    value={inputValue}
+                    onChange={handleInputarea}
                   ></input>
                 </div>
-                <button disabled={this.props.inputValue.length < 1}>
-                  게시
-                </button>
+                <button disabled={inputValue.length < 1}>게시</button>
               </form>
             </div>
           </div>

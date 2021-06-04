@@ -6,14 +6,24 @@ import { Link } from 'react-router-dom';
 
 class CommentBox extends React.Component {
   render() {
-    const { contentsData, commentList, inputValue, handleBtn } = this.props;
+    const {
+      contentsData,
+      commentList,
+      inputValue,
+      isBtnLike,
+      isCommentModal,
+      handleBtn,
+      handleInputarea,
+      handleSubmit,
+      handleCommentModal,
+    } = this.props;
     return (
       <>
         <article className="contents__icons">
           <div>
             <span>
               <button onClick={handleBtn}>
-                <i className={this.props.isBtnLike}></i>
+                <i className={isBtnLike}></i>
               </button>
             </span>
             <span>
@@ -49,17 +59,17 @@ class CommentBox extends React.Component {
             <span className="more">더보기</span>
           </span>
         </article>
-        <div className="more-comment">
+        <div className="modal-box">
           <span className="more">
-            <Link onClick={this.props.handleCommentModal}>댓글 보기</Link>
-            {this.props.isCommentModal && (
+            <Link onClick={handleCommentModal}>댓글 보기</Link>
+            {isCommentModal && (
               <MoreComment
-                isCommentModal={this.props.isCommentModal}
-                handleCommentModal={this.props.handleCommentModal}
+                isCommentModal={isCommentModal}
+                handleCommentModal={handleCommentModal}
                 contentsData={contentsData}
                 commentList={commentList}
-                handleInputarea={this.props.handleInputarea}
-                handleSubmit={this.props.handleSubmit}
+                handleInputarea={handleInputarea}
+                handleSubmit={handleSubmit}
                 inputValue={inputValue}
               />
             )}
@@ -77,7 +87,7 @@ class CommentBox extends React.Component {
           </div>
           <form className="js-comment-form" onSubmit={this.props.handleSubmit}>
             <input
-              onChange={this.props.handleInputarea}
+              onChange={handleInputarea}
               value={inputValue}
               className="js-comment-inputarea"
               placeholder="댓글 달기..."

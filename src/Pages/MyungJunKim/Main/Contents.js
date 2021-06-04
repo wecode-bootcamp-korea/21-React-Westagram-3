@@ -16,7 +16,6 @@ class Contents extends Component {
   }
 
   handleCommentModal = e => {
-    document.body.style.overflow = 'auto';
     this.setState({
       isCommentModal: !this.state.isCommentModal,
     });

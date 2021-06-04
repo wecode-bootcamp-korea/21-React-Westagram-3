@@ -8,6 +8,7 @@ class Main extends Component {
     super();
     this.state = {
       contentsData: [],
+      resize: '',
     };
   }
 
@@ -19,6 +20,19 @@ class Main extends Component {
           contentsData: data,
         });
       });
+    document.querySelector('.main-right').style.left = `${
+      167 + window.innerWidth / 2
+    }px`;
+  }
+
+  componentDidUpdate() {
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  handleResize() {
+    this.setState({
+      resize: `${167 + window.innerWidth / 2}px`,
+    });
   }
 
   render() {
