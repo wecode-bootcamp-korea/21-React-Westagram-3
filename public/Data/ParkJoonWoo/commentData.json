@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "userName": "JayPark",
+    "content": "그저께만은 프로등산러....ㅋ_ㅋ",
+    "isLiked": true
+  },
+  {
+    "id": 2,
+    "userName": "MiYoung",
+    "content": "꿀잠러가 되자",
+    "isLiked": true
+  },
+  {
+    "id": 3,
+    "userName": "Yujeong",
+    "content": "I'M 메뉴 선택 종결자",
+    "isLiked": false
+  },
+  {
+    "id": 4,
+    "userName": "OhHyeon",
+    "content": "리액트 열씨미..",
+    "isLiked": false
+  }
+]

@@ -1,0 +1,151 @@
+@import '../../../styles/_variables.scss';
+
+body {
+  background-color: var(--all_background_color);
+}
+
+.JoonWooPark {
+  main {
+    @include flexSet(column, center, center);
+    font-size: 12px;
+  }
+
+  .login-container {
+    @include flexSet(column, flex-start, center);
+    width: 23rem;
+    margin: 3rem 0 0.5rem 0;
+    border: 1px solid var(--all_section_border_color);
+    background-color: var(--all_section_background_color);
+  }
+
+  .login-title {
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    font-family: 'Lobster', cursive;
+  }
+
+  input {
+    width: 18rem;
+    height: 2.5rem;
+    padding-left: 1rem;
+    border: 1px solid var(--login_input_border_color);
+    border-radius: 0.3rem;
+    background-color: var(--login_input_background_color);
+    font-size: 0.7rem;
+  }
+
+  .login-id {
+    margin-bottom: 0.5rem;
+  }
+
+  .login-button {
+    width: 19rem;
+    height: 2.5rem;
+    margin: 1rem;
+    border: 0;
+    border-radius: 0.2rem;
+    font-size: 0.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    background-color: var(--login_button_color);
+    cursor: not-allowed;
+  }
+
+  .login-button.active {
+    background-color: #0095f6;
+    cursor: pointer;
+  }
+
+  .link-button {
+    color: #ffffff;
+    pointer-events: none;
+  }
+
+  .link-button.active {
+    pointer-events: all;
+  }
+
+  .login-divide {
+    @include flexSet(row, space-between, center);
+    width: 19rem;
+    margin-bottom: 1rem;
+    color: var(--login_divide_font_color);
+
+    .login-divide-line-first,
+    .login-divide-line-second {
+      width: 40%;
+      border: 1px solid var(--login_divide_line_color);
+    }
+  }
+
+  .login-social-app,
+  .login-forget-password {
+    margin: 0.5rem;
+    color: var(--login_facebook_text_color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .login-forget-password {
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+  .register-container {
+    @include flexSet(row, center, center);
+    margin: 0.5rem 0;
+    width: 23rem;
+    height: 4rem;
+    border: 1px solid var(--all_section_border_color);
+    background-color: var(--all_section_color);
+
+    > a {
+      margin-left: 1vmin;
+      color: var(--login_register-text_color);
+      font-weight: 700;
+      text-decoration: none;
+    }
+  }
+
+  .mobile-download-container {
+    @include flexSet(column, flex-start, center);
+    margin-top: 1rem;
+    font-size: 1rem;
+
+    > p {
+      margin-bottom: 1.5rem;
+    }
+
+    .download-container-icons > img {
+      width: 9rem;
+      cursor: pointer;
+      margin: 0 0.5rem;
+    }
+  }
+
+  footer {
+    @include flexSet(column, flex-start, center);
+    margin-top: 4rem;
+    color: var(--all_footer_text_color);
+    font-size: 0.8rem;
+
+    .footer-upper-deck {
+      @include flexSet(row, space-between, flex-start);
+      li {
+        margin-left: 1rem;
+        list-style: none;
+      }
+    }
+
+    .footer-lower-deck {
+      @include flexSet(row, center, center);
+      margin-top: 0.5rem;
+      > select {
+        margin-right: 2rem;
+        border: 0;
+        color: var(--all_footer_text_color);
+      }
+    }
+  }
+}
