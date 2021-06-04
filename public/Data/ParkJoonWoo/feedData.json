@@ -1,0 +1,81 @@
+[
+  {
+    "feedId": 1,
+    "isLiked": true,
+    "likeCount": 130,
+    "imgSrc": "https://images.unsplash.com/photo-1519192036019-0637e78e6351?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80",
+    "content": "What a peaceful..dude",
+    "profileName": "EchoDelta01",
+    "profileSrc": "https://images.unsplash.com/photo-1622664364383-4ee81c71f495?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80",
+    "comments": [
+      {
+        "id": 1,
+        "userName": "Donna",
+        "comment": "dap dap dap"
+      },
+      {
+        "id": 2,
+        "userName": "u2",
+        "comment": "DO NOT DISTURB"
+      },
+      {
+        "id": 3,
+        "userName": "jayPark",
+        "comment": "dahdahdah"
+      }
+    ]
+  },
+
+  {
+    "feedId": 2,
+    "isLiked": false,
+    "likeCount": 84,
+    "imgSrc": "https://images.unsplash.com/photo-1547656807-9733c2b738c2?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
+    "content": "In Paris",
+    "profileName": "YAMA_UNDER_MT",
+    "profileSrc": "https://images.unsplash.com/photo-1603352525945-bb62a311295b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80",
+    "comments": [
+      {
+        "id": 1,
+        "userName": "aka2do",
+        "comment": "DO SOmething OR DIE"
+      },
+      {
+        "id": 2,
+        "userName": "peter parker",
+        "comment": "damn spidy"
+      },
+      {
+        "id": 3,
+        "userName": "waino",
+        "comment": "You know im saying?"
+      }
+    ]
+  },
+  {
+    "feedId": 3,
+    "isLiked": false,
+    "likeCount": 85,
+    "imgSrc": "https://images.unsplash.com/photo-1536599018102-9f803c140fc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1100&q=80",
+    "content": "HONG KONG NIGHT dush",
+    "profileName": "TurnUp0102",
+    "profileSrc": "https://images.unsplash.com/photo-1494633114655-819eb91fde40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80",
+    "comments": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "comment": "COOL AND AWESOME!"
+      },
+      {
+        "id": 2,
+        "userName": "louis",
+        "comment": "where s mario?"
+      },
+      {
+        "id": 3,
+        "userName": "jayPark",
+        "comment": " 1 not da"
+      }
+    ]
+  }
+]

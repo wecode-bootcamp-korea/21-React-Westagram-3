@@ -12,6 +12,22 @@ class Login extends React.Component {
     };
   }
 
+  // fetchRegister = () => {
+  //   fetch('http://10.58.7.105:8000/user/login', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: this.state.inputId,
+  //       password: this.state.inputPassword,
+  //       nickname: '',
+  //       phone_number: '',
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       console.log(res);
+  //     });
+  // };
+
   handleInput = e => {
     this.setState(
       {
@@ -56,6 +72,7 @@ class Login extends React.Component {
             <Link
               to="/main-joon"
               className={isDisabled ? 'link-button' : 'link-button active'}
+              // onClick={this.fetchRegister}
             >
               <button
                 className={isDisabled ? 'login-button' : 'login-button active'}

@@ -7,11 +7,11 @@ class CommentList extends React.Component {
   }
   render() {
     const { commentList } = this.props;
-    return commentList.map(data => {
+    return commentList.map((data, index) => {
       return (
         <li key={data.id}>
           <span className="commentor-id">{data.userName}</span>
-          <span className="comment-content">{data.content}</span>
+          <span className="comment-content">{data.comment}</span>
           <button className="comment-like-button">
             {data.isLiked ? (
               <i className="fas fa-heart" style={{ color: 'red' }}></i>
@@ -19,7 +19,6 @@ class CommentList extends React.Component {
               <i className="fas fa-heart"></i>
             )}
           </button>
-          <button className="comment-remove-button">삭제</button>
         </li>
       );
     });

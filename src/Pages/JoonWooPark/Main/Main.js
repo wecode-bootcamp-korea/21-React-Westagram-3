@@ -10,9 +10,7 @@ class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      commentList: [],
       currentUser: '',
-      inputComment: '',
       userData: [],
     };
   }
@@ -24,44 +22,13 @@ class Main extends React.Component {
   addData = () => {
     fetch('http://localhost:3000/data/ParkJoonWoo/commentData.json')
       .then(res => res.json())
-      .then(data => {
-        this.setState({ commentList: data, userData: jsonData });
+      .then(() => {
+        this.setState({ userData: jsonData });
       });
   };
 
-  handleInput = e => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  handleKeyDown = e => {
-    if (e.code === 'Enter') {
-      this.addComment();
-      e.target.value = '';
-    }
-  };
-
-  addComment = () => {
-    const { inputComment, commentList } = this.state;
-    const input = document.querySelector('.input-comment');
-
-    if (!inputComment) {
-      return;
-    } else {
-      const newObj = {
-        id: commentList.length + 1,
-        userName: 'Walsh',
-        content: inputComment,
-      };
-      const addCommentToList = commentList.concat(newObj);
-      this.setState({ commentList: addCommentToList });
-      input.value = '';
-    }
-  };
-
   render() {
-    const { userData, commentList } = this.state;
+    const { commentList, userData } = this.state;
     return (
       <div className="ParkJoonWoo">
         <Nav />
@@ -70,12 +37,7 @@ class Main extends React.Component {
             <div className="story-container">
               {userData.length > 0 && <StoryList userData={userData} />}
             </div>
-            <Feed
-              commentList={commentList}
-              handleInput={this.handleInput}
-              handleKeyDown={this.handleKeyDown}
-              addComment={this.addComment}
-            />
+            <Feed commentList={commentList} />
           </section>
           <aside className="right-container">
             <section className="login-user-container">
