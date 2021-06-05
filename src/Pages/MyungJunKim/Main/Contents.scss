@@ -1,0 +1,38 @@
+.contents {
+  box-sizing: border-box;
+  padding: 0;
+  margin-bottom: 40px !important;
+  border: 1px solid #dbdbdb;
+  background-color: var(--all_section_background_color);
+
+  .contents__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 17px;
+    font-size: 12px;
+
+    div {
+      display: flex;
+      align-items: center;
+
+      .contents__profile-image {
+        height: 31px;
+        width: 31px;
+        border-radius: 50%;
+      }
+
+      span {
+        margin-left: 12px;
+        font-weight: 700;
+        font-size: 14px;
+      }
+    }
+  }
+
+  .contents__image {
+    height: 620px;
+    width: 100%;
+  }
+}
