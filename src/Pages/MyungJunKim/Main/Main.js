@@ -1,42 +1,63 @@
 import React, { Component } from 'react';
-import Contents from '../Main/Contents';
 import Nav from '../../../Components/Nav';
+import Story from '../Main/Story';
+import Contents from '../Main/Contents';
+import MainRight from '../Main/MainRight';
 import './Main.scss';
+import './Contents.scss';
+import './Story.scss';
+import './Comment/Comment.scss';
 
 class Main extends Component {
   constructor() {
     super();
     this.state = {
+      storys: [],
       contentsData: [],
-      resize: '',
+      suggestUser: [],
+      resize: `${167 + window.innerWidth / 2}px`,
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/ContentsData.json')
+    fetch('data/ContentsData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({
-          contentsData: data,
+          contentsData: data.feed,
         });
       });
-    document.querySelector('.main-right').style.left = `${
-      167 + window.innerWidth / 2
-    }px`;
+
+    fetch('/data/StoryData.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          storys: data.story,
+        });
+      });
+
+    fetch('/data/SuggestUser.json')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          suggestUser: data.suggestUser,
+        });
+      });
   }
 
   componentDidUpdate() {
     window.addEventListener('resize', this.handleResize);
   }
 
-  handleResize() {
+  handleResize = () => {
     this.setState({
       resize: `${167 + window.innerWidth / 2}px`,
     });
-  }
+  };
 
   render() {
-    const { contentsData } = this.state;
+    const { storys, contentsData, suggestUser } = this.state;
+    console.log(contentsData);
     return (
       <div className="main-myung">
         <Nav />
@@ -45,139 +66,14 @@ class Main extends Component {
             <div className="feeds">
               <div className="story">
                 <ul>
-                  <li>
-                    <div className="profile-container">
-                      <div className="profile-wrapper">
-                        <div className="profile-gradation-animate"></div>
-                        <div className="profile__image-wrapper">
-                          <div className="profile__image-small-wrapper"></div>
-                          <img
-                            className="profile__image"
-                            alt="프로필 이미지"
-                            src="https://images.unsplash.com/photo-1575715290166-71463c1244ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3578&q=80"
-                          />
-                        </div>
-                      </div>
-                      <span> myxxjun</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="profile-container">
-                      <div className="profile-wrapper">
-                        <div className="profile-gradation-animate"></div>
-                        <div className="profile__image-wrapper">
-                          <div className="profile__image-small-wrapper"></div>
-                          <img
-                            alt="프로필 이미지"
-                            src="https://images.unsplash.com/photo-1575715290166-71463c1244ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3578&q=80"
-                          />
-                        </div>
-                      </div>
-                      <span> myxxjun</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="profile-container">
-                      <div className="profile-wrapper">
-                        <div className="profile-gradation-animate"></div>
-                        <div className="profile__image-wrapper">
-                          <div className="profile__image-small-wrapper"></div>
-                          <img
-                            className="profile__image"
-                            alt="프로필 이미지"
-                            src="https://images.unsplash.com/photo-1575715290166-71463c1244ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3578&q=80"
-                          />
-                        </div>
-                      </div>
-                      <span> myxxjun</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="profile-container">
-                      <div className="profile-wrapper">
-                        <div className="profile-gradation-animate"></div>
-                        <div className="profile__image-wrapper">
-                          <div className="profile__image-small-wrapper"></div>
-                          <img
-                            className="profile__image"
-                            alt="프로필 이미지"
-                            src="https://images.unsplash.com/photo-1575715290166-71463c1244ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3578&q=80"
-                          />
-                        </div>
-                      </div>
-                      <span> myxxjun</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="profile-container">
-                      <div className="profile-wrapper">
-                        <div className="profile-gradation-animate"></div>
-                        <div className="profile__image-wrapper">
-                          <div className="profile__image-small-wrapper"></div>
-                          <img
-                            className="profile__image"
-                            alt="프로필 이미지"
-                            src="https://images.unsplash.com/photo-1575715290166-71463c1244ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3578&q=80"
-                          />
-                        </div>
-                      </div>
-                      <span> myxxjun</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="profile-container">
-                      <div className="profile-wrapper">
-                        <div className="profile-gradation-animate"></div>
-                        <div className="profile__image-wrapper">
-                          <div className="profile__image-small-wrapper"></div>
-                          <img
-                            className="profile__image"
-                            alt="프로필 이미지"
-                            src="https://images.unsplash.com/photo-1575715290166-71463c1244ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3578&q=80"
-                          />
-                        </div>
-                      </div>
-                      <span> myxxjun</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="profile-container">
-                      <div className="profile-wrapper">
-                        <div className="profile-gradation-animate"></div>
-                        <div className="profile__image-wrapper">
-                          <div className="profile__image-small-wrapper"></div>
-                          <img
-                            className="profile__image"
-                            alt="프로필 이미지"
-                            src="https://images.unsplash.com/photo-1575715290166-71463c1244ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3578&q=80"
-                          />
-                        </div>
-                      </div>
-                      <span> myxxjun</span>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="profile-container">
-                      <div className="profile-wrapper">
-                        <div className="profile-gradation-animate"></div>
-                        <div className="profile__image-wrapper">
-                          <div className="profile__image-small-wrapper"></div>
-                          <img
-                            className="profile__image"
-                            alt="프로필 이미지"
-                            src="https://images.unsplash.com/photo-1575715290166-71463c1244ac?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3578&q=80"
-                          />
-                        </div>
-                      </div>
-                      <span> myxxjun</span>
-                    </div>
-                  </li>
+                  {storys.length > 0 &&
+                    storys.map(data => <Story storyData={data} />)}
                 </ul>
               </div>
               {contentsData.length > 0 &&
                 contentsData.map(data => <Contents contentsData={data} />)}
             </div>
-            <section className="main-right">
+            <section className="main-right" style={{ left: this.state.resize }}>
               <div className="my-profile">
                 <div>
                   <img
@@ -194,79 +90,10 @@ class Main extends Component {
                   <button>모두보기</button>
                 </div>
                 <ul>
-                  <li>
-                    <div className="suggest-profile">
-                      <img
-                        className="suggest-profile__img"
-                        alt="프로필 사진"
-                        src="https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                      />
-                      <div>
-                        <b> dongjun2818</b>
-                        <span>json.macho님 외 1명이 팔로우합니다</span>
-                      </div>
-                      <button>팔로우</button>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="suggest-profile">
-                      <img
-                        className="suggest-profile__img"
-                        alt="프로필 사진"
-                        src="https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                      />
-                      <div>
-                        <b> dongjun2818</b>
-                        <span>json.macho님 외 1명이 팔로우합니다</span>
-                      </div>
-                      <button>팔로우</button>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="suggest-profile">
-                      <img
-                        className="suggest-profile__img"
-                        alt="프로필 사진"
-                        src="https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                      />
-                      <div>
-                        <b> dongjun2818</b>
-                        <span>json.macho님 외 1명이 팔로우합니다</span>
-                      </div>
-
-                      <button>팔로우</button>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="suggest-profile">
-                      <img
-                        className="suggest-profile__img"
-                        alt="프로필 사진"
-                        src="https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                      />
-                      <div>
-                        <b> dongjun2818</b>
-                        <span>json.macho님 외 1명이 팔로우합니다</span>
-                      </div>
-
-                      <button>팔로우</button>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="suggest-profile">
-                      <img
-                        className="suggest-profile__img"
-                        alt="프로필 사진"
-                        src="https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                      />
-                      <div>
-                        <b> dongjun2818</b>
-                        <span>json.macho님 외 1명이 팔로우합니다</span>
-                      </div>
-
-                      <button>팔로우</button>
-                    </div>
-                  </li>
+                  {suggestUser.length > 0 &&
+                    suggestUser.map(data => (
+                      <MainRight suggestUserData={data} />
+                    ))}
                 </ul>
               </div>
               <footer>

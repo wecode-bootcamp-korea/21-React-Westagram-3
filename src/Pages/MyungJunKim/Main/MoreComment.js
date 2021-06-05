@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Comment from '../Main/Comment';
+import Comment from './Comment/Comment';
 
 class MoreComment extends Component {
   componentDidMount() {

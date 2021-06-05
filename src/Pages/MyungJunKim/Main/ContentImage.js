@@ -2,7 +2,6 @@ import React from 'react';
 
 class ContentImage extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <article>
         <img

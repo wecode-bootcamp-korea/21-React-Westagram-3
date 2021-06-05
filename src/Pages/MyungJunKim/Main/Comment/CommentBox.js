@@ -1,7 +1,7 @@
 import React from 'react';
-import MoreComment from '../Main/MoreComment';
-import Comments from '../Main/Comments';
-import Comment from '../Main/Comment';
+import MoreComment from '../MoreComment';
+import Comments from './Comments';
+import Comment from './Comment';
 import { Link } from 'react-router-dom';
 
 class CommentBox extends React.Component {
@@ -10,7 +10,7 @@ class CommentBox extends React.Component {
       contentsData,
       commentList,
       inputValue,
-      isBtnLike,
+      isLiked,
       isCommentModal,
       handleBtn,
       handleInputarea,
@@ -23,7 +23,11 @@ class CommentBox extends React.Component {
           <div>
             <span>
               <button onClick={handleBtn}>
-                <i className={isBtnLike}></i>
+                <i
+                  className={`${
+                    isLiked ? 'fas fa-heart btn-like' : 'fas fa-heart btn-empty'
+                  }`}
+                />
               </button>
             </span>
             <span>
@@ -91,7 +95,7 @@ class CommentBox extends React.Component {
               value={inputValue}
               className="js-comment-inputarea"
               placeholder="댓글 달기..."
-            ></input>
+            />
             <button
               className="js-comment-button"
               disabled={inputValue.length < 1}
