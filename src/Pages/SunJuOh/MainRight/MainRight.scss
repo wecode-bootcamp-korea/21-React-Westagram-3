@@ -1,0 +1,99 @@
+@import '../../../styles/variables.scss';
+
+.main-right {
+  margin: 0 0 0 30px;
+
+  @include tablet {
+    display: none;
+  }
+  .profileBox {
+    display: flex;
+
+    .imageBox {
+      width: 30px;
+
+      img {
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+    }
+    .nameBox {
+      display: flex;
+      flex-direction: column;
+      width: 250px;
+      margin-left: 45px;
+    }
+
+    button {
+      width: 50px;
+      border: none;
+      background-color: var(--all_background_color);
+      color: var(--main_recommend_follow_text_color);
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .recommendBox {
+    @include flexSet(row, space-between, flex-start);
+    margin: 10px 0;
+
+    .recommendContent {
+      color: var(--main_right_text-color);
+    }
+
+    .recommendAll {
+      font-size: 12px;
+    }
+  }
+  .followBox {
+    ul {
+      list-style: none;
+
+      li {
+        position: relative;
+        height: 50px;
+
+        img {
+          position: absolute;
+          left: 0;
+          width: 24px;
+          height: 24px;
+          margin-top: 5px;
+          border-radius: 50%;
+        }
+
+        .columnBox {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          left: 35px;
+
+          span {
+            color: var(--main_right_text-color);
+            font-size: 13px;
+          }
+        }
+
+        .followButton {
+          position: absolute;
+          right: 0;
+          margin-top: 5px;
+          color: var(--main_recommend_follow_text_color);
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  footer {
+    margin-top: 20px;
+
+    span {
+      color: var(--all_footer_text_color);
+      font-size: 13px;
+    }
+  }
+}

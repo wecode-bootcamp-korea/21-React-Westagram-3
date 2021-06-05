@@ -1,0 +1,77 @@
+[
+  {
+    "feedId": 0,
+    "feedUser": "sohee",
+    "feedProfile": "/Images/SunJuOh/sohee.jpeg",
+    "feedImage": "http://www.topstarnews.net/news/photo/201908/662912_367134_3722.jpg",
+    "feedContent": "내용이다1",
+    "isFeedLike": false,
+    "commentList": [
+      {
+        "id": 1,
+        "userName": "wecode",
+        "content": "Welcome to world best coding bootcamp!"
+      },
+      {
+        "id": 2,
+        "userName": "joonsikyang",
+        "content": "안녕하세요."
+      },
+      {
+        "id": 3,
+        "userName": "jayPark",
+        "content": "Hey."
+      }
+    ]
+  },
+  {
+    "feedId": 1,
+    "feedUser": "songkang",
+    "feedProfile": "/Images/SunJuOh/songkang.jpeg",
+    "feedImage": "https://content.presspage.com/uploads/2379/1920_ocean-sunset-195865.jpg?10000",
+    "feedContent": "내용이다2",
+    "isFeedLike": false,
+    "commentList": [
+      {
+        "id": 1,
+        "userName": "wework",
+        "content": "I like my code"
+      },
+      {
+        "id": 2,
+        "userName": "jisoo",
+        "content": "같이 놀러가요"
+      },
+      {
+        "id": 3,
+        "userName": "ryujin",
+        "content": "What's up."
+      }
+    ]
+  },
+  {
+    "feedId": 2,
+    "feedUser": "seonho",
+    "feedProfile": "/Images/SunJuOh/seonho.jpeg",
+    "feedImage": "/Images/SunJuOh/3.JPG",
+    "feedContent": "내용이다3",
+    "isFeedLike": false,
+    "commentList": [
+      {
+        "id": 1,
+        "userName": "_zzz_zi",
+        "content": "여행가요~!"
+      },
+      {
+        "id": 2,
+        "userName": "june_kang",
+        "content": "이 사진 너무 멋있네요"
+      },
+      {
+        "id": 3,
+        "userName": "jayyyy",
+        "content": "Good morning."
+      }
+    ]
+  }
+]
