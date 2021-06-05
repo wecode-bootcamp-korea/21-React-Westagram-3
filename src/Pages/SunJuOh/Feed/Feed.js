@@ -2,6 +2,7 @@ import React from 'react';
 import CommentsList from '../CommentsList/CommentsList';
 import CommentInput from '../CommentInput/CommentInput';
 import '../Main/Main.scss';
+
 class Feed extends React.Component {
   render() {
     const { feed, addComment, toggleLike } = this.props;
@@ -20,7 +21,7 @@ class Feed extends React.Component {
           <img className="mainProfile" alt="profile" src={feedProfile} />
           <div className="feedProfile">
             <strong>{feedUser}</strong>
-            <img src="/Images/SunJuOh/more.svg" />
+            <img src="/Images/SunJuOh/more.svg" alt="more" />
           </div>
         </div>
         <img className="feedImage" alt="main-image" src={feedImage} />

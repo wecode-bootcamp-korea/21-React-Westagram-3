@@ -1,4 +1,5 @@
 import React from 'react';
+import { GET_USER_API } from '../../../../src/config';
 import './Login.scss';
 
 class Login extends React.Component {
@@ -18,19 +19,22 @@ class Login extends React.Component {
   };
 
   goToMain = () => {
-    this.props.history.push('/main-sun');
-  };
-
-  fetchRegister = () => {
-    fetch('http://10.58.5.164:8000/user/Signin', {
-      method: 'POST',
+    const { idValue, passwordValue } = this.state;
+    fetch(`${GET_USER_API}`, {
       body: JSON.stringify({
-        email: this.state.idValue,
-        password: this.state.passwordValue,
+        email: idValue,
+        password: passwordValue,
       }),
     })
       .then(response => response.json())
-      .then(result => console.log('결과: ', result));
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          this.props.history.push('/main-sun');
+        } else {
+          alert('sign up failed.Retry');
+        }
+      })
+      .catch(err => alert(err));
   };
 
   render() {
@@ -60,7 +64,7 @@ class Login extends React.Component {
             />
             <button
               disabled={buttonActive ? false : true}
-              onClick={this.fetchRegister}
+              onClick={this.goToMain}
             >
               로그인
             </button>

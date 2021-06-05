@@ -23,7 +23,7 @@ class CommentInput extends React.Component {
   render() {
     const { addComment, feedId } = this.props;
     const { value } = this.state;
-    const buttonValid = value.length > 0;
+    const isButtonActive = value.length > 0;
 
     return (
       <form>
@@ -38,7 +38,7 @@ class CommentInput extends React.Component {
           type="submit"
           className="pressPost"
           onClick={event => addComment(event, feedId, value, this.reset)}
-          disabled={buttonValid ? false : true}
+          disabled={isButtonActive ? false : true}
         >
           게시
         </button>
